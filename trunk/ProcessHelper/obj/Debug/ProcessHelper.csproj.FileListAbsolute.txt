@@ -12,3 +12,4 @@ E:\GitHub\重庆江津\江津对接\trunk\ProcessHelper\bin\Debug\ProcessHelper.
 E:\GitHub\重庆江津\江津对接\trunk\ProcessHelper\bin\Debug\ProcessHelper.pdb
 E:\GitHub\重庆江津\江津对接\trunk\ProcessHelper\obj\Debug\ProcessHelper.dll
 E:\GitHub\重庆江津\江津对接\trunk\ProcessHelper\obj\Debug\ProcessHelper.pdb
+E:\GitHub\重庆江津\江津对接\trunk\ProcessHelper\obj\Debug\ProcessHelper.csprojResolveAssemblyReference.cache

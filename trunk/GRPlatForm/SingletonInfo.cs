@@ -25,6 +25,10 @@ namespace GRPlatForm
 
         public string sZJPostUrlAddress;
         public string TerminalLastTime;
+
+        public bool PlatformInformationFirst;
+
+        public int SequenceCodes;//顺序码
         private SingletonInfo()                                                                 
         {
             Longitude = "";
@@ -35,6 +39,8 @@ namespace GRPlatForm
             TerminalLastTime = "";
             TsCmd_ValueID_ = "";
             sZJPostUrlAddress = "";
+            PlatformInformationFirst = false;
+            SequenceCodes = 0;
         }
         public static SingletonInfo GetInstance()
         {

@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.btn_Verify = new System.Windows.Forms.Button();
             this.txtServerPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -86,37 +86,22 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btn_Verify);
             this.panel1.Controls.Add(this.txtServerPort);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(474, 564);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(474, 451);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1083, 100);
+            this.panel1.Size = new System.Drawing.Size(642, 80);
             this.panel1.TabIndex = 0;
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(799, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(276, 31);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "播发记录主动上报";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // btn_Verify
             // 
             this.btn_Verify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Verify.Location = new System.Drawing.Point(799, 40);
-            this.btn_Verify.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Verify.Location = new System.Drawing.Point(400, 22);
             this.btn_Verify.Name = "btn_Verify";
-            this.btn_Verify.Size = new System.Drawing.Size(125, 52);
+            this.btn_Verify.Size = new System.Drawing.Size(94, 42);
             this.btn_Verify.TabIndex = 7;
             this.btn_Verify.Text = "人工审核-开启";
             this.btn_Verify.UseVisualStyleBackColor = true;
@@ -125,43 +110,51 @@
             // txtServerPort
             // 
             this.txtServerPort.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtServerPort.Location = new System.Drawing.Point(133, 39);
-            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4);
+            this.txtServerPort.Location = new System.Drawing.Point(100, 31);
             this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(132, 30);
+            this.txtServerPort.Size = new System.Drawing.Size(100, 26);
             this.txtServerPort.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(20, 45);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "服务端口:";
             // 
             // btnStart
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.Location = new System.Drawing.Point(932, 40);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStart.Location = new System.Drawing.Point(517, 22);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(143, 52);
+            this.btnStart.Size = new System.Drawing.Size(107, 42);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "启动服务";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Location = new System.Drawing.Point(3, 151);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(188, 25);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "播发记录主动上报";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(4, 115);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(3, 92);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(251, 31);
+            this.button4.Size = new System.Drawing.Size(188, 25);
             this.button4.TabIndex = 4;
             this.button4.Text = "终端信息上报";
             this.button4.UseVisualStyleBackColor = true;
@@ -169,12 +162,11 @@
             // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(4, 76);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(3, 61);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(251, 31);
+            this.button3.Size = new System.Drawing.Size(188, 25);
             this.button3.TabIndex = 4;
             this.button3.Text = "平台状态信息";
             this.button3.UseVisualStyleBackColor = true;
@@ -182,12 +174,11 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(4, 40);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(3, 32);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(251, 31);
+            this.button2.Size = new System.Drawing.Size(188, 25);
             this.button2.TabIndex = 4;
             this.button2.Text = "终端状态上报";
             this.button2.UseVisualStyleBackColor = true;
@@ -195,12 +186,11 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(4, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(251, 31);
+            this.button1.Size = new System.Drawing.Size(188, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "平台信息上报";
             this.button1.UseVisualStyleBackColor = true;
@@ -208,12 +198,11 @@
             // 
             // btnHeart
             // 
-            this.btnHeart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btnHeart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHeart.Location = new System.Drawing.Point(4, 153);
-            this.btnHeart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHeart.Location = new System.Drawing.Point(3, 122);
             this.btnHeart.Name = "btnHeart";
-            this.btnHeart.Size = new System.Drawing.Size(251, 31);
+            this.btnHeart.Size = new System.Drawing.Size(188, 25);
             this.btnHeart.TabIndex = 3;
             this.btnHeart.Text = "发送心跳";
             this.btnHeart.UseVisualStyleBackColor = true;
@@ -224,20 +213,18 @@
             this.panel2.Controls.Add(this.txtMsgShow);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(474, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1083, 564);
+            this.panel2.Size = new System.Drawing.Size(642, 451);
             this.panel2.TabIndex = 1;
             // 
             // txtMsgShow
             // 
             this.txtMsgShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMsgShow.Location = new System.Drawing.Point(0, 0);
-            this.txtMsgShow.Margin = new System.Windows.Forms.Padding(4);
             this.txtMsgShow.Multiline = true;
             this.txtMsgShow.Name = "txtMsgShow";
             this.txtMsgShow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMsgShow.Size = new System.Drawing.Size(1083, 564);
+            this.txtMsgShow.Size = new System.Drawing.Size(642, 451);
             this.txtMsgShow.TabIndex = 0;
             // 
             // timHold
@@ -341,19 +328,17 @@
             this.dp_PendingTask.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dp_PendingTask.ID = new System.Guid("5cc154f6-9469-48aa-a5cc-284776cffc48");
             this.dp_PendingTask.Location = new System.Drawing.Point(0, 0);
-            this.dp_PendingTask.Margin = new System.Windows.Forms.Padding(4);
             this.dp_PendingTask.Name = "dp_PendingTask";
             this.dp_PendingTask.OriginalSize = new System.Drawing.Size(474, 265);
-            this.dp_PendingTask.Size = new System.Drawing.Size(474, 664);
+            this.dp_PendingTask.Size = new System.Drawing.Size(474, 531);
             this.dp_PendingTask.Text = "待处理消息";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.list_PendingTask);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 26);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(466, 634);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(466, 504);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // list_PendingTask
@@ -364,9 +349,8 @@
             this.list_PendingTask.Dock = System.Windows.Forms.DockStyle.Fill;
             this.list_PendingTask.FullRowSelect = true;
             this.list_PendingTask.Location = new System.Drawing.Point(0, 0);
-            this.list_PendingTask.Margin = new System.Windows.Forms.Padding(4);
             this.list_PendingTask.Name = "list_PendingTask";
-            this.list_PendingTask.Size = new System.Drawing.Size(466, 634);
+            this.list_PendingTask.Size = new System.Drawing.Size(466, 504);
             this.list_PendingTask.TabIndex = 0;
             this.list_PendingTask.UseCompatibleStateImageBehavior = false;
             this.list_PendingTask.View = System.Windows.Forms.View.Details;
@@ -387,11 +371,10 @@
             this.panelContainer3.Controls.Add(this.dp_HanleReport);
             this.panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.panelContainer3.ID = new System.Guid("594decd8-e498-46a4-ac09-4948840aa4c1");
-            this.panelContainer3.Location = new System.Drawing.Point(1557, 0);
-            this.panelContainer3.Margin = new System.Windows.Forms.Padding(4);
+            this.panelContainer3.Location = new System.Drawing.Point(1116, 0);
             this.panelContainer3.Name = "panelContainer3";
             this.panelContainer3.OriginalSize = new System.Drawing.Size(207, 200);
-            this.panelContainer3.Size = new System.Drawing.Size(207, 664);
+            this.panelContainer3.Size = new System.Drawing.Size(207, 531);
             this.panelContainer3.Text = "panelContainer3";
             // 
             // dp_OMDRequest
@@ -401,19 +384,17 @@
             this.dp_OMDRequest.FloatVertical = true;
             this.dp_OMDRequest.ID = new System.Guid("7b974e43-cbd2-4aff-b367-00fc3757a3c1");
             this.dp_OMDRequest.Location = new System.Drawing.Point(0, 0);
-            this.dp_OMDRequest.Margin = new System.Windows.Forms.Padding(4);
             this.dp_OMDRequest.Name = "dp_OMDRequest";
-            this.dp_OMDRequest.OriginalSize = new System.Drawing.Size(207, 333);
-            this.dp_OMDRequest.Size = new System.Drawing.Size(207, 333);
+            this.dp_OMDRequest.OriginalSize = new System.Drawing.Size(155, 266);
+            this.dp_OMDRequest.Size = new System.Drawing.Size(207, 266);
             this.dp_OMDRequest.Text = "上级业务数据请求";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.list_OMDRequest);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 26);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(4);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(199, 303);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(199, 239);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // list_OMDRequest
@@ -423,9 +404,8 @@
             this.list_OMDRequest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.list_OMDRequest.FullRowSelect = true;
             this.list_OMDRequest.Location = new System.Drawing.Point(0, 0);
-            this.list_OMDRequest.Margin = new System.Windows.Forms.Padding(4);
             this.list_OMDRequest.Name = "list_OMDRequest";
-            this.list_OMDRequest.Size = new System.Drawing.Size(199, 303);
+            this.list_OMDRequest.Size = new System.Drawing.Size(199, 239);
             this.list_OMDRequest.TabIndex = 0;
             this.list_OMDRequest.UseCompatibleStateImageBehavior = false;
             this.list_OMDRequest.View = System.Windows.Forms.View.Details;
@@ -440,16 +420,15 @@
             this.dp_HanleReport.Controls.Add(this.dockPanel4_Container);
             this.dp_HanleReport.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dp_HanleReport.ID = new System.Guid("978ef1fe-0ed2-45ea-82f8-7366205a213f");
-            this.dp_HanleReport.Location = new System.Drawing.Point(0, 333);
-            this.dp_HanleReport.Margin = new System.Windows.Forms.Padding(4);
+            this.dp_HanleReport.Location = new System.Drawing.Point(0, 266);
             this.dp_HanleReport.Name = "dp_HanleReport";
-            this.dp_HanleReport.OriginalSize = new System.Drawing.Size(276, 331);
-            this.dp_HanleReport.Size = new System.Drawing.Size(207, 331);
+            this.dp_HanleReport.OriginalSize = new System.Drawing.Size(155, 265);
+            this.dp_HanleReport.Size = new System.Drawing.Size(207, 265);
             this.dp_HanleReport.Text = "手动上业务数据";
             // 
             // dockPanel4_Container
             // 
-            this.dockPanel4_Container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dockPanel4_Container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dockPanel4_Container.Controls.Add(this.btn_HreartState);
             this.dockPanel4_Container.Controls.Add(this.btn_InfroState);
@@ -458,20 +437,19 @@
             this.dockPanel4_Container.Controls.Add(this.btnHeart);
             this.dockPanel4_Container.Controls.Add(this.button4);
             this.dockPanel4_Container.Controls.Add(this.button3);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 26);
-            this.dockPanel4_Container.Margin = new System.Windows.Forms.Padding(4);
+            this.dockPanel4_Container.Controls.Add(this.button6);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(199, 301);
+            this.dockPanel4_Container.Size = new System.Drawing.Size(199, 238);
             this.dockPanel4_Container.TabIndex = 0;
             // 
             // btn_HreartState
             // 
-            this.btn_HreartState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btn_HreartState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_HreartState.Location = new System.Drawing.Point(4, 225);
-            this.btn_HreartState.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_HreartState.Location = new System.Drawing.Point(3, 209);
             this.btn_HreartState.Name = "btn_HreartState";
-            this.btn_HreartState.Size = new System.Drawing.Size(251, 31);
+            this.btn_HreartState.Size = new System.Drawing.Size(188, 25);
             this.btn_HreartState.TabIndex = 10;
             this.btn_HreartState.Text = "心跳状态-开启";
             this.btn_HreartState.UseVisualStyleBackColor = true;
@@ -479,12 +457,11 @@
             // 
             // btn_InfroState
             // 
-            this.btn_InfroState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btn_InfroState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_InfroState.Location = new System.Drawing.Point(4, 189);
-            this.btn_InfroState.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_InfroState.Location = new System.Drawing.Point(3, 180);
             this.btn_InfroState.Name = "btn_InfroState";
-            this.btn_InfroState.Size = new System.Drawing.Size(251, 31);
+            this.btn_InfroState.Size = new System.Drawing.Size(188, 25);
             this.btn_InfroState.TabIndex = 11;
             this.btn_InfroState.Text = "信息状态-开启";
             this.btn_InfroState.UseVisualStyleBackColor = true;
@@ -503,17 +480,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ServerForm
+            // HttpServerFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1764, 664);
+            this.ClientSize = new System.Drawing.Size(1323, 531);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelContainer3);
             this.Controls.Add(this.dp_PendingTask);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ServerForm";
+            this.Name = "HttpServerFrom";
             this.Text = "消息服务";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HttpServerFrom_FormClosing);
             this.Load += new System.EventHandler(this.HttpServerFrom_Load);

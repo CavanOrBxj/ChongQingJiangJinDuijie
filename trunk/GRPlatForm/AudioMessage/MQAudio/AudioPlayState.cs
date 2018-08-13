@@ -118,6 +118,13 @@ namespace GRPlatForm.AudioMessage.MQAudio
                 throw new Exception("应急消息回馈:" + ex.Message);
             }
         }
+
+        public string GetSequenceCodes()
+        {
+            SingletonInfo.GetInstance().SequenceCodes += 1;
+            return SingletonInfo.GetInstance().SequenceCodes.ToString().PadLeft(16, '0');
+        }
+
         private bool sendEBMStateResponse(EBD ebdsr, string BrdStateDesc, string BrdStateCode)
         {
             //*反馈
@@ -149,7 +156,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
             string fName = HttpServerFrom.ebd.EBDID.ToString();
 
             Random rdState = new Random();
-            string frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+            string frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
 
@@ -236,7 +243,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -270,7 +277,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -288,7 +295,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);

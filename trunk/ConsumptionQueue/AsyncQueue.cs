@@ -47,7 +47,7 @@ namespace ConsumptionQueue
         //消费者线程处理事件
         public event EventHandler<EventArgs<Exception>> ProcessException;
         // 并发队列
-        private ConcurrentQueue<T> queue;
+        private ConcurrentQueue<T> queue;//高效的线程安全的队列  修改于20180813
         // 消费者的数量
         private int _internalTaskCount;
         // 存储消费者队列

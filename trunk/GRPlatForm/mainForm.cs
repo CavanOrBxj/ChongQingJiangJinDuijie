@@ -81,6 +81,9 @@ namespace GRPlatForm
         {
             try
             {
+                SingletonInfo.GetInstance().PlatformInformationFirst= ini.ReadValue("FIRST", "PlatformInformationFirst")=="true"?true:false;
+                SingletonInfo.GetInstance().SequenceCodes = Convert.ToInt32(ini.ReadValue("SequenceCodes", "SequenceCodes")); 
+
                 m_UsbPwsSupport = ini.ReadValue("USBPSW", "USBPSWSUPPART");
                 //MQStartFlag = ini.ReadValue("[MQInfo]", "IsStartFlag") == "1" ? true : false;//判断是否启用MQ
                 CipherExe = ini.ReadValue("USBPSW", "UsbCipherExe");

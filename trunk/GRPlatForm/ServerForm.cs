@@ -591,7 +591,7 @@ namespace GRPlatForm
                     rState.SourceID = ServerForm.strSourceID;
                     rState.sHBRONO = ServerForm.strHBRONO;
                     Random rdState = new Random();
-                    string frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    string frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                     List<Device> lDev = new List<Device>();
                     lock (OMDRequestLock)
@@ -841,7 +841,7 @@ namespace GRPlatForm
                             if (lDevS.Count > 0)
                             {
                                 Random rdState = new Random();
-                                frdStateNameS = "10" + rHeartS.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                                frdStateNameS = "10" + rHeartS.sHBRONO + GetSequenceCodes();
                                 string xmlEBMStateFileName = "\\EBDB_" + frdStateNameS + ".xml";
 
                                 xmlHeartDocS = rHeartS.DeviceStateResponse(lDevS, frdStateNameS);
@@ -1720,7 +1720,7 @@ namespace GRPlatForm
                                                 rState.SourceID = ServerForm.strSourceID;
                                                 rState.sHBRONO = ServerForm.strHBRONO;
                                                 Random rdState = new Random();
-                                                string frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                                                string frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
                                                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                                                 List<Device> lDev = new List<Device>();
                                                 lock (OMDRequestLock)
@@ -3004,7 +3004,7 @@ namespace GRPlatForm
 
 
             Random rdState = new Random();
-            string frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+            string frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
 
@@ -3092,7 +3092,7 @@ namespace GRPlatForm
             string fName = ebd.EBDID.ToString();
 
             Random rdState = new Random();
-            string frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+            string frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
 
@@ -3468,7 +3468,7 @@ namespace GRPlatForm
             try
             {
                 Random rdState = new Random();
-                frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                 xmlHeartDoc = rHeart.platformInfoResponse(frdStateName,1);
@@ -3532,7 +3532,7 @@ namespace GRPlatForm
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3562,7 +3562,7 @@ namespace GRPlatForm
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3576,7 +3576,7 @@ namespace GRPlatForm
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3637,7 +3637,7 @@ namespace GRPlatForm
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3666,7 +3666,7 @@ namespace GRPlatForm
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3680,7 +3680,7 @@ namespace GRPlatForm
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -3712,7 +3712,7 @@ namespace GRPlatForm
             try
             {
                 Random rdState = new Random();
-                frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                 xmlHeartDoc = rHeart.platformstateInfoResponse(frdStateName);
@@ -3775,7 +3775,7 @@ namespace GRPlatForm
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -3806,7 +3806,7 @@ namespace GRPlatForm
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -3823,7 +3823,7 @@ namespace GRPlatForm
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -4041,7 +4041,7 @@ namespace GRPlatForm
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -4064,7 +4064,7 @@ namespace GRPlatForm
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -4079,7 +4079,7 @@ namespace GRPlatForm
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
@@ -4140,7 +4140,7 @@ namespace GRPlatForm
                                 lDev.Add(DV);
                             }
                             Random rdState = new Random();
-                            frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                             xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -4169,7 +4169,7 @@ namespace GRPlatForm
                             lDev.Add(DV);
                         }
                         Random rdState = new Random();
-                        frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                         xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -4186,7 +4186,7 @@ namespace GRPlatForm
                 else
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
@@ -4222,7 +4222,7 @@ namespace GRPlatForm
             try
             {
                 Random rdState = new Random();
-                frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                 xmlHeartDoc = rHeart.platformstateInfoResponse(frdStateName);
@@ -4257,7 +4257,7 @@ namespace GRPlatForm
             try
             {
                 Random rdState = new Random();
-                frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                 xmlHeartDoc = rHeart.platformInfoResponse(frdStateName);
@@ -4352,7 +4352,7 @@ namespace GRPlatForm
                 rState.SourceID = strSourceID;
                 rState.sHBRONO = strHBRONO;
                 Random rdState = new Random();
-                string frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                string frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                 List<Device> lDev = new List<Device>();
                 lock (OMDRequestLock)
@@ -4822,7 +4822,7 @@ namespace GRPlatForm
             rState.SourceID = strSourceID;
             rState.sHBRONO = strHBRONO;
             Random rdState = new Random();
-            string frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+            string frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
             string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
             List<Device> lDev = new List<Device>();
             lock (InfoObj)
@@ -4842,9 +4842,9 @@ namespace GRPlatForm
                     try
                     {
                         Random rdState = new Random();
-                        frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
-                   
-                   
+                        frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
+
+
                         xmlStateDoc = rState.platformInfoResponse(frdStateName, 2);
                         UnifyCreateTar(xmlStateDoc, frdStateName);
                         string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
@@ -5260,7 +5260,7 @@ namespace GRPlatForm
 
                 Random rdState = new Random();
 
-                string frdStateName = "10" + rState.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                string frdStateName = "10" + rState.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                 if (ebd == null)
                     return;
@@ -6097,6 +6097,15 @@ namespace GRPlatForm
             Report,// 上报        
             request//请求
         }
+
+
+        public string GetSequenceCodes()
+        {
+            SingletonInfo.GetInstance().SequenceCodes += 1;
+            return SingletonInfo.GetInstance().SequenceCodes.ToString().PadLeft(16, '0');
+        }
+
+
         private void PlaybackRecord(string StartTime, string EndTime, PlaybackRecordType Type, RecordptType RecordType)
         {
             string MediaSQL = "select * from TSCMDSTORE left join playRecord on PR_SourceID = TsCmd_ID";
@@ -6123,7 +6132,7 @@ namespace GRPlatForm
                 case PlaybackRecordType.request:
                     List<string> Eid = new List<string>();
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                     xmlHeartDoc = rHeart.DevicePlayback(frdStateName, dtMedia);

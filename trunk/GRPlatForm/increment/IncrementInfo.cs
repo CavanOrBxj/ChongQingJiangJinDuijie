@@ -13,6 +13,14 @@ namespace GRPlatForm.increment
     {
         public SendInfo send = new SendInfo();
         /*---------------------2018-06-10添加终端主动上报变更信息-------------------------------*/
+
+        public string GetSequenceCodes()
+        {
+            SingletonInfo.GetInstance().SequenceCodes += 1;
+            return SingletonInfo.GetInstance().SequenceCodes.ToString().PadLeft(16, '0');
+        }
+
+
         public void TimingTerminalInfo(int type)
         {
 
@@ -237,7 +245,7 @@ namespace GRPlatForm.increment
                 if (lDev.Count > 0)
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                     xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
                     CreateXML(xmlHeartDoc, ServerForm.sHeartSourceFilePath + xmlEBMStateFileName);
@@ -383,7 +391,7 @@ namespace GRPlatForm.increment
                 if (lDev.Count > 0)
                 {
                     Random rdState = new Random();
-                    frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                    frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                     string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
                     xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
                     CreateXML(xmlHeartDoc, ServerForm.sHeartSourceFilePath + xmlEBMStateFileName);
@@ -417,7 +425,7 @@ namespace GRPlatForm.increment
             try
             {
                 Random rdState = new Random();
-                frdStateName = "10" + rHeart.sHBRONO + "0000000000000" + rdState.Next(100, 999).ToString();
+                frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                 string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
                 xmlHeartDoc = rHeart.AdapterStateRequestResponse(frdStateName,BrdStateDesc,BrdStateCode);
