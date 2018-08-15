@@ -45,7 +45,7 @@ namespace HttpModel
             xmlEBDResponse.AppendChild(xmlResultCode);
 
             XmlElement xmlResultDesc = xmlDoc.CreateElement("ResultDesc");
-            xmlResultDesc.InnerText = "已完成接收";
+            xmlResultDesc.InnerText = "接收解析及数据校验成功";
             xmlEBDResponse.AppendChild(xmlResultDesc);
             return xmlDoc;
         }
@@ -150,17 +150,22 @@ namespace HttpModel
             XmlElement xmlSRC = xmlDoc.CreateElement("SRC");
             xmlElem.AppendChild(xmlSRC);
 
-            //dest
-            XmlElement xmlDEST = xmlDoc.CreateElement("DEST");
-            xmlElem.AppendChild(xmlDEST);
 
             XmlElement xmlSRCEBRID = xmlDoc.CreateElement("EBRID");
-            xmlSRCEBRID.InnerText = ini.ReadValue("INFOSET", "ADAPTERNO");
+            //  xmlSRCEBRID.InnerText = ini.ReadValue("INFOSET", "ADAPTERNO");
+            xmlSRCEBRID.InnerText = ini.ReadValue("INFOSET", "HBRONO");
             xmlSRC.AppendChild(xmlSRCEBRID);
 
 
+
+
+            //dest
+            XmlElement xmlDEST = xmlDoc.CreateElement("DEST");
+            xmlElem.AppendChild(xmlDEST);
+        
+
             XmlElement xmlSRCAreaCode1 = xmlDoc.CreateElement("EBRID");
-            xmlSRCAreaCode1.InnerText = ini.ReadValue("INFOSET", "ADAPTERNO");
+            xmlSRCAreaCode1.InnerText = ini.ReadValue("FORM", "Superior");
             xmlDEST.AppendChild(xmlSRCAreaCode1);
 
 

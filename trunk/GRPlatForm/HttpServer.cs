@@ -398,6 +398,13 @@ namespace GRPlatForm
             Console.WriteLine("接收Tar文件成功！");
         }
 
+
+        public string GetSequenceCodes()
+        {
+            SingletonInfo.GetInstance().SequenceCodes += 1;
+            return SingletonInfo.GetInstance().SequenceCodes.ToString().PadLeft(16, '0');
+        }
+
         /// <summary>
         /// 通用反馈  收到tar就回
         /// </summary>
@@ -405,7 +412,6 @@ namespace GRPlatForm
         {
             try
             {
-
                 ServerForm.DeleteFolder(ServerForm.strBeSendFileMakeFolder);//删除原有XML发送文件的文件夹下的XML
                 XmlDocument xmlDoc = new XmlDocument();
                 responseXML rp = new responseXML();
@@ -416,8 +422,7 @@ namespace GRPlatForm
                 rp.sHBRONO = ServerForm.strHBRONO;
 
                 Random rd = new Random();
-               // string fName = "10" + rp.sHBRONO + "00000000000" + rd.Next(100, 999).ToString();
-                string fName = "10" + rp.sHBRONO + "0000000000000" + rd.Next(100, 999).ToString();
+                string fName = "10" + rp.sHBRONO + GetSequenceCodes();
                 xmlDoc = rp.CurrencyReback(ebdb, "EBDResponse", fName);
                 string xmlSignFileName = "\\EBDB_" + fName + ".xml";
 

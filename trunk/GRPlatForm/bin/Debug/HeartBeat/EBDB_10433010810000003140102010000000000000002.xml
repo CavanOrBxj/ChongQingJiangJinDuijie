@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<EBD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EBDVersion>1.0</EBDVersion>
+  <EBDID>10433010810000003140102010000000000000002</EBDID>
+  <EBDType>EBRPSState</EBDType>
+  <SRC>
+    <EBRID>43301081000000314010201</EBRID>
+    <URL>http://183.247.163.23:7500</URL>
+  </SRC>
+  <DEST>
+    <EBRID>203301080000000102010101</EBRID>
+  </DEST>
+  <EBDTime>2018-08-14 13:27:36</EBDTime>
+  <EBRDTState>
+    <EBRDT>
+      <RptTime>2018-08-14 13:27:36</RptTime>
+      <EBRID>43301081000000314010201</EBRID>
+      <StateCode>1</StateCode>
+      <StateDesc>运行正常</StateDesc>
+    </EBRDT>
+  </EBRDTState>
+</EBD>

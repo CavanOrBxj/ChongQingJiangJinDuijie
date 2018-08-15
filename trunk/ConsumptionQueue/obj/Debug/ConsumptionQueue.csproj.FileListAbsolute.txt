@@ -71,3 +71,12 @@ E:\GitHub\重庆江津\江津对接\trunk\ConsumptionQueue\bin\Debug\HttpModel.p
 E:\GitHub\重庆江津\江津对接\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.csprojResolveAssemblyReference.cache
 E:\GitHub\重庆江津\江津对接\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.dll
 E:\GitHub\重庆江津\江津对接\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\ConsumptionQueue.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\ConsumptionQueue.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\HttpModel.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\SharpCompress.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\bin\Debug\HttpModel.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.csprojResolveAssemblyReference.cache
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\ConsumptionQueue\obj\Debug\ConsumptionQueue.pdb

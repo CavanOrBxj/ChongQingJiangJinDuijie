@@ -489,14 +489,10 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+          
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
 
             EDB.EBMStateResponse = new model.EBMStateResponse();
             EDB.EBMStateResponse.RptTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -665,11 +661,8 @@ namespace GRPlatForm
             //EDB.RelatedEBD = new model.RelatedEBD();//合版本
             //EDB.RelatedEBD.EBDID = ebdsr.EBDID;//合版本
             //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+      
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EDB.EBRASState = new EBRASState();
             EDB.EBRASState.EBRAS = new EDB_EBRBS.EBRAS();
             EDB.EBRASState.EBRAS.RptTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -849,11 +842,8 @@ namespace GRPlatForm
             //EDB.RelatedEBD = new model.RelatedEBD();//合版本
             //EDB.RelatedEBD.EBDID = ebdsr.EBDID;//合版本
             //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+          
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EDB.EBRASState = new EBRASState();
             EDB.EBRASState.EBRAS = new EDB_EBRBS.EBRAS();
             EDB.EBRASState.EBRAS.RptTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -1024,7 +1014,7 @@ namespace GRPlatForm
             EDB.EBDID = strebdid;
             EDB.EBDType = "EBMStateResponse";
             EDB.SRC = new model.SRC();
-            EDB.SRC.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.SRC.EBRID = serverini.ReadValue("INFOSET", "HBRONO");
 
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //EDB.RelatedEBD = new model.RelatedEBD();//合版本
@@ -1374,17 +1364,13 @@ namespace GRPlatForm
             EDB.EBDID = "01" + sHBRONO + "0000000000000000";
             EDB.EBDType = "ConnectionCheck";
             EDB.SRC = new model.SRC();
-            EDB.SRC.EBRID = serverini.ReadValue("INFOSET", "ADAPTERNO");
+            EDB.SRC.EBRID = serverini.ReadValue("INFOSET", "HBRONO");
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
-  
+           
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
+
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID =serverini.ReadValue("FORM", "ADAPTERNO");
+            EDB.DEST.EBRID =serverini.ReadValue("FORM", "Superior");
             EDB.ConnectionCheck = new ConnectionCheck();
             EDB.ConnectionCheck.RptTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
       
@@ -1829,15 +1815,11 @@ namespace GRPlatForm
             EDB.EBRDTInfo.Params.RptStartTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             EDB.EBRDTInfo.Params.RptType = "Full";
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+        
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EDB.EBRDTInfo.EBRDT = new List<Information>();
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
 
             string DeviEBRID = sHBRONO.Substring(4, sHBRONO.Length - 6);
             if (lDev.Count > 0)
@@ -2054,21 +2036,22 @@ namespace GRPlatForm
             EDB.EBDID = strebdid;
             EDB.EBDType = "EBRDTInfo";
             EDB.SRC = new model.SRC();
-            EDB.SRC.EBRID = lDev[0].DeviceID;
+            //  EDB.SRC.EBRID = lDev[0].DeviceID;
+
+            EDB.SRC.EBRID = serverini.ReadValue("INFOSET", "HBRONO");
             //EDB.EBRDTInfo.Params = new model.Params();
             //EDB.EBRDTInfo.Params.RptEndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //EDB.EBRDTInfo.Params.RptStartTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //EDB.EBRDTInfo.Params.RptType = "";
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+       
+      
+       
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EDB.EBRDTInfo.EBRDT = new List<Information>();
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
 
             string DeviEBRID = sHBRONO.Substring(4, sHBRONO.Length - 6);
             if (lDev.Count > 0)
@@ -2261,17 +2244,13 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+        
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); ;
             EDB.RelatedEBD = new model.RelatedEBD();
             EDB.RelatedEBD.EBDID = ebdsr.EBDID;
 
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
 
             EDB.EBRPSInfo = new EBRPSInfo();
             EDB.EBRPSInfo.EBRPS = new List<model.EBRPSS>();
@@ -2301,7 +2280,7 @@ namespace GRPlatForm
                 {
                     EBRPS.Latitude = EBRPS.Latitude.Split('.')[0] + "." + EBRPS.Latitude.Split('.')[1].Substring(0, 6);
                 }
-                EBRPS.URL = "http://" + mergeString;
+                EBRPS.URL = "http://";  //到时候再加
                 EBRPS.Address = serverini.ReadValue("PLATFORMINFO", "Address");
                 EBRPS.Contact = serverini.ReadValue("PLATFORMINFO", "Contact");
                 EBRPS.EBRID = sHBRONO;
@@ -2450,16 +2429,12 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+          
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); 
 
 
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
 
             EDB.EBRPSInfo = new EBRPSInfo();
             EDB.EBRPSInfo.EBRPS = new List<model.EBRPSS>();
@@ -2472,7 +2447,7 @@ namespace GRPlatForm
            EBRPS.RptType = "Sync";
             EBRPS.RelatedEBRPS = new RelatedEBRPS();
            EBRPS.RelatedEBRPS.EBRID = serverini.ReadValue("FORM", "Superior");
-            EBRPS.PhoneNumber = serverini.ReadValue("PLATFORMINFO", ".PhoneNuber");
+            EBRPS.PhoneNumber = serverini.ReadValue("PLATFORMINFO", "PhoneNumber");
             EBRPS.Longitude = serverini.ReadValue("PLATFORMINFO", "Longitude");
             if (EBRPS.Longitude.Split('.')[1].Length > 6)
             {
@@ -2483,7 +2458,7 @@ namespace GRPlatForm
             {
                 EBRPS.Latitude = EBRPS.Latitude.Split('.')[0] +"."+ EBRPS.Latitude.Split('.')[1].Substring(0, 6);
             }
-            EBRPS.URL = "http://" + mergeString;
+            EBRPS.URL = "http://";
             EBRPS.Address = serverini.ReadValue("PLATFORMINFO", "Address");
             EBRPS.Contact = serverini.ReadValue("PLATFORMINFO", "Contact");
             EBRPS.EBRID = sHBRONO;
@@ -2631,7 +2606,6 @@ namespace GRPlatForm
        
             XmlDocument document = new XmlDocument();
             model.EBD EDB = new model.EBD();
-            //   EDB.EBMStateResponse = new model.EBMStateResponse();
 
             //加入XML的声明段落,Save方法不再xml上写出独立属性
             EDB.EBDVersion = "1.0";
@@ -2640,30 +2614,17 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
-       
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); 
             EDB.RelatedEBD = new model.RelatedEBD();
-
-            //EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
-
+            EDB.RelatedEBD.EBDID = "空";
             EDB.EBRPSInfo = new EBRPSInfo();
             EDB.EBRPSInfo.EBRPS = new List<model.EBRPSS>();
-            //EDB.EBRPSInfo.Params = new model.Params();
-            //EDB.EBRPSInfo.Params.RptEndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //EDB.EBRPSInfo.Params.RptStartTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            // EDB.EBRPSInfo.Params.RptType = "Full";
             EBRPSS EBRPS = new EBRPSS();
             EBRPS.RelatedEBRPS = new RelatedEBRPS();
-            EBRPS.RelatedEBRPS.EBRID = serverini.ReadValue("FORM", "Superior");
+            EBRPS.RelatedEBRPS.EBRID = serverini.ReadValue("FORM", "Superior");//省平台的资源编码
             EBRPS.RptTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             EBRPS.RptType = "Sync";
-
-            EBRPS.PhoneNumber = serverini.ReadValue("PLATFORMINFO", ".PhoneNuber");
+            EBRPS.PhoneNumber = serverini.ReadValue("PLATFORMINFO", "PhoneNumber");
             EBRPS.Longitude = serverini.ReadValue("PLATFORMINFO", "Longitude");
             if (EBRPS.Longitude.Split('.')[1].Length > 6)
             {
@@ -2674,7 +2635,7 @@ namespace GRPlatForm
             {
                 EBRPS.Latitude = EBRPS.Latitude.Split('.')[0] + "." + EBRPS.Latitude.Split('.')[1].Substring(0, 6);
             }
-            EBRPS.URL = "http://" + mergeString;
+            EBRPS.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EBRPS.Address = serverini.ReadValue("PLATFORMINFO", "Address");
             EBRPS.Contact = serverini.ReadValue("PLATFORMINFO", "Contact");
             EBRPS.EBRID = sHBRONO;
@@ -2769,137 +2730,10 @@ namespace GRPlatForm
 
             }
 
-
-            //  string strXML = XmlSerialize<model.EBMStateResponse>(EBMStateResponse);
-
-
-        
-
-
-
-            //2018-06-02修改
-
-            //xmlDoc.AppendChild(xmlDoc.CreateXmlDeclaration("1.0", "utf-8", null));
-            ////加入根元素
-            //XmlElement xmlElem = xmlDoc.CreateElement("", "EBD", "");
-            //xmlDoc.AppendChild(xmlElem);
-            //XmlAttribute xmlns = xmlDoc.CreateAttribute("xmlns:xs");
-            //xmlns.Value = "http://www.w3.org/2001/XMLSchema";
-            //xmlElem.Attributes.Append(xmlns);
-
-            ////Version
-            //XmlElement xmlProtocolVer = xmlDoc.CreateElement("EBDVersion");
-            //xmlProtocolVer.InnerText = "1.0";
-            //xmlElem.AppendChild(xmlProtocolVer);
-            ////EBDID
-            //XmlElement xmlEBDID = xmlDoc.CreateElement("EBDID");
-            //xmlEBDID.InnerText = strebdid;//strebdid;//自己的ID前面一长串
-            //xmlElem.AppendChild(xmlEBDID);
-
-            ////EBDType
-            //XmlElement xmlEBDType = xmlDoc.CreateElement("EBDType");
-            //xmlEBDType.InnerText = "EBRPSInfo";
-            //xmlElem.AppendChild(xmlEBDType);
-
-            ////Source
-            //XmlElement xmlSRC = xmlDoc.CreateElement("SRC");
-            //xmlElem.AppendChild(xmlSRC);
-
-            //XmlElement xmlSRCAreaCode = xmlDoc.CreateElement("EBRID");
-            //xmlSRCAreaCode.InnerText = sHBRONO;// sHBRONO;单独的ID
-            //xmlSRC.AppendChild(xmlSRCAreaCode);
-
-
-            //XmlElement xmlDEST = xmlDoc.CreateElement("DEST");
-            //xmlElem.AppendChild(xmlDEST);
-
-            //XmlElement xmlDESTEBRID = xmlDoc.CreateElement("EBRID");
-            //xmlDESTEBRID.InnerText = "010232000000000001";// sHBRONO;单独的ID
-            //xmlDEST.AppendChild(xmlDESTEBRID);
-
-            ////EBDTime
-            //XmlElement xmlEBDTime = xmlDoc.CreateElement("EBDTime");
-
-            //xmlEBDTime.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //xmlElem.AppendChild(xmlEBDTime);
-
-            ////RelatedEBD
-            ////XmlElement xmlRelatedEBD = xmlDoc.CreateElement("RelatedEBD");
-            ////xmlElem.AppendChild(xmlRelatedEBD);
-            ////XmlElement xmlReEBDID = xmlDoc.CreateElement("EBDID");
-            ////xmlReEBDID.InnerText = strebdid;//与EBDID一致就用这个写
-            ////xmlRelatedEBD.AppendChild(xmlReEBDID);
-
-            //XmlElement xmlDeviceInfoReport = xmlDoc.CreateElement("EBRPSInfo");
-            //xmlElem.AppendChild(xmlDeviceInfoReport);
-
-            //XmlElement xmlParams = xmlDoc.CreateElement("Params");
-            //xmlElem.AppendChild(xmlParams);
-
-            //XmlElement xmlRPTStartTime = xmlDoc.CreateElement("RPTStartTime");//RPTStartTime
-            //xmlRPTStartTime.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");// ebdsr.DataRequest.StartTime;
-            //xmlParams.AppendChild(xmlRPTStartTime);
-
-            //XmlElement xmlRPTEndTime = xmlDoc.CreateElement("RPTEndTime");//RPTEndTime
-            //xmlRPTEndTime.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); //ebdsr.DataRequest.EndTime;
-            //xmlParams.AppendChild(xmlRPTEndTime);
-
-            //XmlElement xmlRptType = xmlDoc.CreateElement("RptType");//RPTEndTime
-            //xmlRptType.InnerText = "Full"; //ebdsr.DataRequest.EndTime;
-            //xmlParams.AppendChild(xmlRptType);
-
-            //XmlElement xmlDevice = xmlDoc.CreateElement("EBRPS");//Term
-            //xmlDeviceInfoReport.AppendChild(xmlDevice);
-
-            //XmlElement xmlRptTime = xmlDoc.CreateElement("RptTime");
-            //xmlRptTime.InnerText = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //xmlDevice.AppendChild(xmlRptTime);
-
-            //XmlElement xmlRptType2 = xmlDoc.CreateElement("RptType");
-            //xmlRptType2.InnerText = "Sync";
-            //xmlDevice.AppendChild(xmlRptType2);
-
-            //XmlElement xmlRelatedEBRPS = xmlDoc.CreateElement("RelatedEBRPS");
-            //xmlDevice.AppendChild(xmlRelatedEBRPS);
-
-            //XmlElement xmlEBRID = xmlDoc.CreateElement("EBRID");
-            //xmlEBRID.InnerText = sHBRONO;
-            //xmlRelatedEBRPS.AppendChild(xmlEBRID);
-
-            //XmlElement xmlDeviceID = xmlDoc.CreateElement("EBRID");
-            //xmlDeviceID.InnerText = sHBRONO;
-            //xmlDevice.AppendChild(xmlDeviceID);
-
-            //XmlElement xmlDeviceName = xmlDoc.CreateElement("EBRName");
-            //xmlDeviceName.InnerText = serverini.ReadValue("PLATFORMINFO", "EBRName");//"丹阳县应急广播平台";
-            //xmlDevice.AppendChild(xmlDeviceName);
-
-            //XmlElement Address = xmlDoc.CreateElement("Address");
-            //Address.InnerText = serverini.ReadValue("PLATFORMINFO", "Address");//"丹阳县广电";
-            //xmlDevice.AppendChild(Address);
-
-            //XmlElement Contact = xmlDoc.CreateElement("Contact");
-            //Contact.InnerText = serverini.ReadValue("PLATFORMINFO", "Contact");//"老铁";
-            //xmlDevice.AppendChild(Contact);
-
-            //XmlElement PhoneNumber = xmlDoc.CreateElement("PhoneNumber");
-            //PhoneNumber.InnerText = serverini.ReadValue("PLATFORMINFO", "PhoneNumber");//"12345678901";
-            //xmlDevice.AppendChild(PhoneNumber);
-
-            //XmlElement Longitude = xmlDoc.CreateElement("Longitude");
-            //Longitude.InnerText = "118.33"; // "113.7747551274";
-            //xmlDevice.AppendChild(Longitude);
-
-            //XmlElement Latitude = xmlDoc.CreateElement("Latitude");
-            //Latitude.InnerText = "33.95"; //  "34.6328783614";
-            //xmlDevice.AppendChild(Latitude);
-
-            //XmlElement URL = xmlDoc.CreateElement("URL");
-            //URL.InnerText = "192.168.34.98";
-            //xmlDevice.AppendChild(URL);
-
             return null;
         }
+
+
         public bool UpdateEbrpssInfo(EBRPSS EBRPSS)
         {
             string EbrpssSql = "update ebrpss set RptTime='"+ EBRPSS.RptTime + "',EBRID='"+ EBRPSS.EBRID +
@@ -3361,15 +3195,11 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+      
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
 
             EDB.DEST = new model.DEST();
-            EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
+            EDB.DEST.EBRID = serverini.ReadValue("FORM", "Superior");
             EDB.RelatedEBD = new model.RelatedEBD();
             EDB.RelatedEBD.EBDID = ebdsr.EBDID;
 
@@ -3470,12 +3300,7 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); ;
 
             EDB.DEST = new model.DEST();
             EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
@@ -3576,12 +3401,8 @@ namespace GRPlatForm
             EDB.SRC = new model.SRC();
             EDB.SRC.EBRID = sHBRONO;
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+          
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL");
             EDB.EBMBrdLog = new EBMBrdLog();
             EDB.EBMBrdLog.EBMBrdItem = new List<EBMBrdItems>();
             foreach (DataRow item in E_ID.Rows)
@@ -3657,12 +3478,8 @@ namespace GRPlatForm
 
             EDB.RelatedEBD = new model.RelatedEBD();//合版本
             EDB.RelatedEBD.EBDID = ebdsr.EBDID;//合版本
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+         
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); 
 
             EDB.RelatedEBD = new model.RelatedEBD();
             EDB.RelatedEBD.EBDID = ebdsr.EBDID;
@@ -3790,16 +3607,10 @@ namespace GRPlatForm
             EDB.EBDID = strebdid;
             EDB.EBDType = "EBRDTState";
             EDB.SRC = new model.SRC();
-            EDB.SRC.EBRID = lDevState[0].DeviceID;
+            EDB.SRC.EBRID = serverini.ReadValue("INFOSET", "HBRONO");
             EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //EDB.DEST = new model.DEST();
-            //EDB.DEST.EBRID = serverini.ReadValue("FORM", "SuperiorPlatform");
-            //      EDB.EBDTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string serverIP = serverini.ReadValue("INFOSET", "ServerIP");
-            string serverPort = serverini.ReadValue("INFOSET", "ServerPort");
-            //   合并
-            string mergeString = serverIP + ":" + serverPort;
-            EDB.SRC.URL = mergeString;
+         
+            EDB.SRC.URL = serverini.ReadValue("PLATFORMINFO", "URL"); 
 
        
        

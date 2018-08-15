@@ -533,6 +533,8 @@ namespace GRPlatForm
             }
             Console.WriteLine("结束======");
         }
+
+
         public void dealTar(InfoModel info)
         {
             SetText(info.FileName+"接收成功",Color.Green);
@@ -582,10 +584,10 @@ namespace GRPlatForm
                     }
                     DeleteFolder(sSourcePath);//删除原有XML发送文件的文件夹下的XML
 
-                    if (sSignFileName == "")
-                    {
-                    }
-                    else
+                    //if (sSignFileName == "")
+                    //{
+                    //}
+                    //else  测试注释 20180814
                     {
                         //读取xml中的文件,转换为byte字节
                         byte[] xmlArray = File.ReadAllBytes(sAnalysisFileName);
@@ -2036,33 +2038,6 @@ namespace GRPlatForm
             {
                 Log.Instance.LogWrite("应急消息播发状态反馈发送平台错误：" + w.Message);
             }
-            //Random rd = new Random();
-            //string fName = ebd.EBDID.ToString();
-            //string xmlEBMStateFileName = "\\EBDB_" + ebd.EBDID.ToString() + ".xml";
-            //// string xmlSignFileName = "\\EBDI_" + ebd.EBDID.ToString() + ".xml";
-            ////xmlHeartDoc = rHeart.EBMStateResponse(ebd, "EBMStateResponse", fName, BrdStateDesc, BrdStateCode);
-
-            //xmlHeartDoc = rHeart.AdapterStateRequestResponse(ebd, fName, BrdStateDesc, BrdStateCode);
-            ////string xmlStateFileName = "\\EBDB_000000000001.xml";
-            //CreateXML(xmlHeartDoc, sEBMStateResponsePath + xmlEBMStateFileName);
-            ////  HttpServerFrom .mainFrm.AudioGenerateSignatureFile(sEBMStateResponsePath, "EBDI",ebd.EBDID.ToString());
-            //HttpServerFrom .mainFrm.GenerateSignatureFile(sEBMStateResponsePath, ebd.EBDID.ToString());
-            //tar.CreatTar(sEBMStateResponsePath, sSendTarPath, ebd.EBDID.ToString());// "HB000000000001");//使用新TAR
-            ////}
-            ////catch (Exception ec)
-            ////{
-            ////    Log.Instance.LogWrite("应急消息播发状态反馈组包错误：" + ec.Message);
-            ////}
-            ////string sHeartBeatTarName = sSendTarPath + "\\" + "HB000000000001" + ".tar";
-            //string sHeartBeatTarName = sSendTarPath + "\\EBDT_" + ebd.EBDID.ToString() + ".tar";
-            //try
-            //{
-            //    HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName);
-            //}
-            //catch (Exception w)
-            //{
-            //    Log.Instance.LogWrite("应急消息播发状态反馈发送平台错误：" + w.Message);
-            //}
         }
 
         public static bool QueryQueue(InfoModel info, InfoModel infoB)
@@ -2070,7 +2045,6 @@ namespace GRPlatForm
             if (info.id == infoB.id)
                 return true;
             return false;
-            //Console.WriteLine(info.ComId + "====" + DelegateQueue<InfoModel>.queue.Count);
         }
         static void WriteLog(object ex, EventArgs<Exception> args)
         {
@@ -3924,35 +3898,33 @@ namespace GRPlatForm
         private void btnHeart_Click(object sender, EventArgs e)
         {
 
-            XmlDocument xmlHeartDoc = new XmlDocument();
 
+            XmlDocument xmlHeartDoc = new XmlDocument();
             responseXML rHeart = new responseXML();
             rHeart.SourceAreaCode = strSourceAreaCode;
             rHeart.SourceType = strSourceType;
             rHeart.SourceName = strSourceName;
             rHeart.SourceID = strSourceID;
             rHeart.sHBRONO = strHBRONO;
-            HttpServerFrom .DeleteFolder(sHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
+            DeleteFolder(TimesHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
             try
             {
                 xmlHeartDoc = rHeart.HeartBeatResponse();
-                string HeartName = "01" + rHeart.sHBRONO + "0000000000000000";
-                //   int lenth = HeartName.Length;
+                string HreartName = "01" + rHeart.sHBRONO + "0000000000000000";
                 string xmlStateFileName = "EBDB_" + "01" + rHeart.sHBRONO + "0000000000000000.xml";
-                CreateXML(xmlHeartDoc, sHeartSourceFilePath + "\\" + xmlStateFileName);
-
-              //  HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, HeartName);  测试注释20180812
-                tar.CreatTar(sHeartSourceFilePath, sSendTarPath, "01" + rHeart.sHBRONO + "0000000000000000");
+                CreateXML(xmlHeartDoc, TimesHeartSourceFilePath + "\\" + xmlStateFileName);
+                //   ServerForm.mainFrm.GenerateSignatureFile(TimesHeartSourceFilePath, "01" + rHeart.sHBRONO + "0000000000000000"); 测试注释20180812
+                tar.CreatTar(TimesHeartSourceFilePath, sSendTarPath, "01" + rHeart.sHBRONO + "0000000000000000");
             }
-
             catch (Exception ec)
             {
                 Log.Instance.LogWrite("心跳处错误：" + ec.Message);
             }
             string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + "01" + rHeart.sHBRONO + "0000000000000000" + ".tar";
+          
+            model.EBDResponse ebdResponse = HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);
             try
             {
-                model.EBDResponse ebdResponse = HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);
                 if (ebdResponse.ResultCode == 1)
                 {
                     dtLinkTime = DateTime.Now;

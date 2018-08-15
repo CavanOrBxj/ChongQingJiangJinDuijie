@@ -64,3 +64,11 @@ E:\GitHub\重庆江津\江津对接\trunk\HttpModel\bin\Debug\SharpCompress.dll
 E:\GitHub\重庆江津\江津对接\trunk\HttpModel\obj\Debug\HttpModel.dll
 E:\GitHub\重庆江津\江津对接\trunk\HttpModel\obj\Debug\HttpModel.pdb
 E:\GitHub\重庆江津\江津对接\trunk\HttpModel\obj\Debug\HttpModel.csprojResolveAssemblyReference.cache
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\HttpModel.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\HttpModel.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\Log.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\SharpCompress.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.csprojResolveAssemblyReference.cache

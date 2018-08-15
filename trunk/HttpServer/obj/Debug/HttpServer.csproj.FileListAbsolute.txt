@@ -106,3 +106,17 @@ E:\GitHub\重庆江津\江津对接\trunk\HttpServer\bin\Debug\HttpServerLib.pdb
 E:\GitHub\重庆江津\江津对接\trunk\HttpServer\obj\Debug\HttpServer.csprojResolveAssemblyReference.cache
 E:\GitHub\重庆江津\江津对接\trunk\HttpServer\obj\Debug\HttpServer.dll
 E:\GitHub\重庆江津\江津对接\trunk\HttpServer\obj\Debug\HttpServer.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpServer.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpServer.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\ConsumptionQueue.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpModel.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpServerLib.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\Log.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\SharpCompress.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\ConsumptionQueue.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpModel.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\bin\Debug\HttpServerLib.pdb
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\obj\Debug\HttpServer.csprojResolveAssemblyReference.cache
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\obj\Debug\HttpServer.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpServer\obj\Debug\HttpServer.pdb

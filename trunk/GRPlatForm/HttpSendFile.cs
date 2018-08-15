@@ -207,26 +207,32 @@ namespace GRPlatForm
                     webRespon = httpReq.GetResponse();   //提示操作超时  20180105
                     Stream responseStream = webRespon.GetResponseStream();
                     string str = streamReadLine(responseStream);
-                    string xmlInfo = GetResponseXml(str);
 
-                    xmlInfo = XmlSerialize.GetLowOrderASCIICharacters(xmlInfo);
-                    model.EBD ebd = XmlSerialize.DeserializeXML<model.EBD>(xmlInfo);
-                    if (ebd != null)
+                    if (str != "")
                     {
+                        string xmlInfo = GetResponseXml(str);
 
-                        Res.ResultCode = ebd.EBDResponse.ResultCode;
+                        xmlInfo = XmlSerialize.GetLowOrderASCIICharacters(xmlInfo);
+                        model.EBD ebd = XmlSerialize.DeserializeXML<model.EBD>(xmlInfo);
+                        if (ebd != null)
+                        {
 
-                        Res.ResultDesc = ebd.EBDResponse.ResultDesc;
+                            Res.ResultCode = ebd.EBDResponse.ResultCode;
+
+                            Res.ResultDesc = ebd.EBDResponse.ResultDesc;
+                        }
+
+                        responseStream.Close();
                     }
-
-                    responseStream.Close();
-
-
+                    else
+                    {
+                        return null;
+                    }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
-                    return null;
+                  
                 }
                 finally
                 {

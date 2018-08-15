@@ -74,6 +74,12 @@ namespace HttpServer
             //发送响应
             response.Send();
         }
+
+
+
+
+        
+
         public override void OnPost(HttpRequest request, HttpResponse response,string SavePath,string FileName)
         {
             string UnpackTarPath = "";
@@ -121,10 +127,6 @@ namespace HttpServer
                         ebd = XmlSerialize.DeserializeXML<EBD>(xmlInfo);
                     }
 
-
-
-
-
                     IniFiles serverini = new IniFiles(StartupPath + "\\Config.ini");
                     CombineXML cx = new CombineXML(serverini);
                     string strHBRONO = serverini.ReadValue("INFOSET", "HBRONO");  //实体编号
@@ -141,7 +143,7 @@ namespace HttpServer
                     Attestation Attestation = new Attestation();
                     // TarHelper tar = new TarHelper();
                     //     ServerForm.mainFrm.AudioGenerateSignatureFile(ServerForm.strBeSendFileMakeFolder,"EBDI",fName);
-                    Attestation.GenerateSignatureFile(m_UsbPwsSupport, SendFilePath, fName, StartupPath + "\\Config.ini");
+                 //   Attestation.GenerateSignatureFile(m_UsbPwsSupport, SendFilePath, fName, StartupPath + "\\Config.ini");  测试注释 20180814
                     tar.CreatTar(serverini.ReadValue("FolderSet", "BeXmlFileMakeFolder"), SendFilePath, fName);//使用新TAR
                     string sSendTarName = SendFilePath + "\\EBDT_" + fName + ".tar";
                     byte[] heByte;

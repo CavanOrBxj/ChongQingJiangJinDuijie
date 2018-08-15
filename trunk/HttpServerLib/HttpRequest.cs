@@ -633,200 +633,11 @@ namespace HttpServerLib
 
              PostRequestDeal(new StreamReader(ms), path);
             return;
-
-            #region xx
-            //Console.WriteLine("获取POST数据开始:get post data start");
-            //string sFileForldPath = ServerForm.sRevTarPath;// ServerForm.sTarPathName.Substring(0, ServerForm.sTarPathName.LastIndexOf("\\"));//接收文件夹路径
-            //Console.WriteLine("204:" + sFileForldPath);
-            //string sFilePath = string.Empty;
-            //string revfilename = string.Empty;//接收到的文件名
-            //int content_len = 0;
-            //int iFileLen = -1;
-            //if (this.httpHeaders.ContainsKey("Content-Length"))
-            //{
-            //    content_len = Convert.ToInt32(this.httpHeaders["Content-Length"]);
-            //    if (content_len > MAX_POST_SIZE)
-            //    {
-            //        Console.WriteLine(String.Format("POST Content-Length({0}) too big for this simple server", content_len));
-            //    }
-            //    byte[] buf = new byte[BUF_SIZE];
-            //    List<byte> lListData = new List<byte>();
-            //    string dealFilePath = "";
-            //    int to_read = content_len;
-            //    if (to_read > 0)
-            //    {
-            //        string DataLine;
-            //        FileStream fs = null;
-            //        try
-            //        {
-            //            while ((DataLine = streamDataReadLine(inputStream, ref lListData)) != null)
-            //            {
-            //                if (DataLine.Equals("--" + sSeparateString) && sSeparateString != "")
-            //                {
-            //                    continue;
-            //                }
-            //                else if (DataLine.Equals("--" + sSeparateString + "--") && sSeparateString != "")
-            //                {
-            //                    if (fs != null)
-            //                        fs.Close();
-            //                    bool verifySuccess = false;
-            //                    DealTarBack(dealFilePath, out verifySuccess);//处理接收文件      2016-04-11 与下一句调换顺序
-            //                    if (verifySuccess)
-            //                        ServerForm.lRevFiles.Add(sFilePath);//完成接收文件后把文件增加到处理列表上去
-            //                }
-            //                else if (DataLine.Contains("Content-Disposition"))
-            //                {
-            //                    string[] sSeparateVaule = DataLine.Split('=');
-            //                    if (sSeparateVaule.Length > 1)
-            //                    {
-            //                        revfilename = sSeparateVaule[sSeparateVaule.Length - 1];//文件名
-            //                        if (revfilename != "")
-            //                        {
-            //                            revfilename = revfilename.Replace("\"", "");
-            //                            sFilePath = sFileForldPath + "\\" + revfilename;
-            //                        }
-            //                        else
-            //                        {
-            //                            sFilePath = sFileForldPath + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".tar";
-            //                        }
-            //                        if (fs != null)
-            //                        {
-            //                            fs.Close();
-            //                        }
-            //                        else
-            //                        {
-            //                            fs = new FileStream(sFilePath, FileMode.Create, FileAccess.Write); //打开一个写入流
-            //                            iFileLen = 0;
-            //                        }
-            //                        dealFilePath = sFilePath;
-            //                        revfilename = string.Empty;
-            //                    }
-            //                    continue;
-            //                }
-            //                else if (DataLine.Contains("Content-Type"))
-            //                {
-            //                    continue;
-            //                }
-            //                else //if (DataLine.Length > 0 || lListData.Count> 0)
-            //                {
-            //                    //为数据内容
-            //                    if (DataLine.Length == 0 && iFileLen == 0)
-            //                        continue;
-            //                    iFileLen += lListData.Count;
-            //                    fs.Write(lListData.ToArray(), 0, lListData.Count);
-            //                    fs.Flush();
-            //                }
-            //            }
-            //        }
-            //        catch (Exception em)
-            //        {
-            //            Console.WriteLine("295行：" + em.Message);
-            //        }
-            //        finally
-            //        {
-            //            if (fs != null)
-            //            {
-            //                fs.Close();
-            //            }
-            //        }
-            //    }
-            //    Console.WriteLine("接收Tar文件成功！");
-            //    //writeSuccess();
-            //}
-            //Console.WriteLine("get post data end");
-            #endregion
         }
-        //private void GetRequestData(Stream stream, string path, string tarName)
-        //{
-        //    try
-        //    {
-        //       InfoModel  info = new InfoModel();
-        //        //var length = 0;
-        //        //var data = string.Empty;
-
-        //        //do
-        //        //{
-        //        //    length = stream.Read(bytes, 0, MAX_SIZE - 1);
-        //        //    data += Encoding.UTF8.GetString(bytes, 0, length);
-        //        //} while (length > 0 && !data.Contains("\r\n\r\n"));
-
-        //        //return data;
-        //        //  Logger.Log("get post data start");
-        //        int content_len = 0;
-        //        MemoryStream ms = new MemoryStream();
-        //        if (httpHeaders.ContainsKey("Content-Length"))
-        //        {
-        //            content_len = Convert.ToInt32(httpHeaders["Content-Length"]);
-        //            if (content_len > MAX_SIZE)
-        //            {
-        //                //   Logger.Log(string.Format("POST Content-Length({0}) too big for this simple server", content_len));
-        //                return;
-        //            }
-        //            byte[] buf = new byte[BUF_SIZE];
-        //            int to_read = content_len;
-        //            try
-        //            {
-        //                while (to_read > 0)
-        //                {
-        //                    int numread = stream.Read(buf, 0, Math.Min(BUF_SIZE, to_read));
-        //                    if (numread == 0)
-        //                    {
-        //                        if (to_read == 0)
-        //                        {
-        //                            break;
-        //                        }
-        //                        else
-        //                        {
-        //                            //  httpServer.Log("client disconnected during post");
-        //                        }
-        //                    }
-        //                    to_read -= numread;
-        //                    ms.Write(buf, 0, numread);
-        //                }
-        //                ms.Seek(0, SeekOrigin.Begin);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                Console.WriteLine(ex.Message);
-        //            }
-        //            }
-                   
-                
-        //        //   Logger.Log("get post data end");
-        //        byte[] byteData = new byte[ms.Length];
-        //        ms.Read(byteData, 0, byteData.Length);
-        //        ms.Seek(0, SeekOrigin.Begin);
-        //        // 把 byte[] 写入文件
-        //        FileStream fsd = new FileStream(path + "\\" + tarName, FileMode.Create);
-        //        BinaryWriter bw = new BinaryWriter(fsd);
-        //        bw.Write(byteData);
-        //        bw.Close();
-        //        fsd.Close();
-
-           
-        //       Random rd = new Random(int.Parse(DateTime.Now.ToString("HHmmssfff")));
-        //        info.id = rd.Next(1000, 9999);
-        //        info.FileName = tarName;
-        //        info.IsTime = DateTime.Now.ToString("yy-MM-dd hh:mm:ss");
-        //        info.FullPath = path + "\\" + tarName;
-        //        info.IsType = IsType.Receive;
-        //        info.OfCompletion = OfCompletion.Untreated;
-        //        Queueinterface<InfoModel>.queue.Enqueue(info);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //     //   httpServer.Log(2,"Error",ex.Message);
-             
-        //    }
-        //}
+       
 
         private void GetRequestData( string path)
         {
-
-      
-
-
             try
             {
                 InfoModel info = new InfoModel();
@@ -900,23 +711,6 @@ namespace HttpServerLib
 
             }
         }
-        //private string GetRequestData(Stream stream, ref byte[] readData)
-        //{
-        //    Stream sm = stream;
-        //    var length = 0;
-        //    var data = string.Empty;
-
-        //    do
-        //    {
-        //        length = sm.Read(bytes, 0, MAX_POST_SIZE- 1);
-        //        data += Encoding.UTF8.GetString(bytes, 0, length);
-        //    } while (length > 0 && !data.Contains("--\r\n\r\n"));
-        //    var rows = Regex.Split(data, Environment.NewLine);
-        //    readData = bytes;
-        //    //Request URL & Method & Version
-          
-        //    return data;
-        //}
 
         private Dictionary<string, string> GetRequestHeaders(IEnumerable<string> rows)
         {
@@ -927,8 +721,6 @@ namespace HttpServerLib
             var range = Enumerable.Range(1, length - 1);
             return range.Select(e => rows.ElementAt(e)).ToDictionary(e => e.Split(':')[0], e => e.Split(':')[1].Trim());
         }
-
-
 
         /// <summary>
         /// 获取数据结果

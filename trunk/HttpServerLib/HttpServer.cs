@@ -132,7 +132,7 @@ namespace HttpServerLib
             if (IsRunning) return;
 
             //创建服务端Socket
-            this.serverListener = new TcpListener(IPAddress.Parse(ServerIP), ServerPort);
+            serverListener = new TcpListener(IPAddress.Parse(ServerIP), ServerPort);
             this.Protocol = serverCertificate == null ? Protocols.Http : Protocols.Https;
             this.IsRunning = true;
           
@@ -207,6 +207,8 @@ namespace HttpServerLib
 
         //    context.Response.Write("2");//返回参数
         //}
+
+
         private void ProcessRequest(TcpClient handler, ref Thread th)
         {
             //处理请求

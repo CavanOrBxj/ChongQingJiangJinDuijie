@@ -9,6 +9,7 @@
     <ErrorReportUrlHistory />
     <FallbackCulture>zh-CN</FallbackCulture>
     <VerifyUploadedFiles>true</VerifyUploadedFiles>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartWorkingDirectory>
