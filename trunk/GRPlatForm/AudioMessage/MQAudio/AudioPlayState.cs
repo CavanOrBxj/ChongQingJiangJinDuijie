@@ -213,7 +213,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
             try
             {
                 //  MediaSql = "select  SRV.SRV_ID,SRV.SRV_CODE,SRV_GOOGLE, SRV_PHYSICAL_CODE,srv_detail  FROM SRV  left join Srvtype on   SRV.DeviceTypeId= Srvtype .srv_id where  Srvtype.srv_id=1";
-                MediaSql = "select  SRV.SRV_ID,SRV.SRV_CODE,SRV_GOOGLE, SRV_PHYSICAL_CODE,srv_detail,SRV_LOGICAL_CODE,SRV_MFT_DATE,updateDate,SRV_RMT_STATUS  FROM SRV  left join Srvtype on   SRV.DeviceTypeId= Srvtype .srv_id where  Srvtype.srv_id=1";
+                MediaSql = "select  SRV.SRV_ID,SRV.SRV_CODE,SRV_GOOGLE, SRV_PHYSICAL_CODE,srv_detail,SRV_LOGICAL_CODE_GB,SRV_MFT_DATE,updateDate,SRV_RMT_STATUS  FROM SRV  left join Srvtype on   SRV.DeviceTypeId= Srvtype .srv_id where  Srvtype.srv_id=1";
                 DataTable dtMedia = mainForm.dba.getQueryInfoBySQL(MediaSql);
                 if (dtMedia != null && dtMedia.Rows.Count > 0)
                 {
@@ -227,7 +227,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
                                 Device DV = new Device();
                                 DV.SRV_ID = dtMedia.Rows[idtM][0].ToString();
                                 strSRV_CODE = dtMedia.Rows[idtM][1].ToString();
-                                DV.DeviceID = dtMedia.Rows[idtM]["SRV_LOGICAL_CODE"].ToString();
+                                DV.DeviceID = dtMedia.Rows[idtM]["SRV_LOGICAL_CODE_GB"].ToString();//修改于20180819 把资源码换成23位
 
                                 DV.DeviceName = dtMedia.Rows[idtM][4].ToString();
 
@@ -265,7 +265,7 @@ namespace GRPlatForm.AudioMessage.MQAudio
                             Device DV = new Device();
                             DV.SRV_ID = dtMedia.Rows[idtM][0].ToString();
                             strSRV_CODE = dtMedia.Rows[idtM][1].ToString();
-                            DV.DeviceID = dtMedia.Rows[idtM]["SRV_LOGICAL_CODE"].ToString();
+                            DV.DeviceID = dtMedia.Rows[idtM]["SRV_LOGICAL_CODE_GB"].ToString();
 
                             DV.DeviceName = dtMedia.Rows[idtM][4].ToString();
 

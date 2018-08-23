@@ -161,9 +161,10 @@ namespace HttpModel
             }
             catch
             {
-                //outStream.Close();
+                outStream.Close();
                 return false;
             }
+           
             return true;
         }
 

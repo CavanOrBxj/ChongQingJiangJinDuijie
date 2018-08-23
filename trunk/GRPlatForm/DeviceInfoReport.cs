@@ -36,6 +36,12 @@ namespace GRPlatForm
         public string Old_Srv_Mft_Date;
         public string Old_UpdateDate;
         /*------------------------------*/
+
+        /// <summary>
+        /// 应急广播适配器资源编码
+        /// </summary>
+        public string EBRID;
+
         /// <summary>
         /// 
         /// </summary>
@@ -48,6 +54,11 @@ namespace GRPlatForm
         /// 纬度
         /// </summary>
         public string Latitude;
+
+        /// <summary>
+        /// url  20180815新增
+        /// </summary>
+        public string URL;
     }
 
 }

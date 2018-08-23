@@ -69,6 +69,14 @@ E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\
 E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\Log.dll
 E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\bin\Debug\SharpCompress.dll
+E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.csprojResolveAssemblyReference.cache
 E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.dll
 E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.pdb
-E:\GitHub\重庆江津\江津对接\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.csprojResolveAssemblyReference.cache
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\bin\Debug\HttpModel.dll
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\bin\Debug\HttpModel.pdb
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\bin\Debug\Log.dll
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\bin\Debug\SharpCompress.dll
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\obj\Debug\HttpModel.csprojResolveAssemblyReference.cache
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\obj\Debug\HttpModel.dll
+D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpModel\obj\Debug\HttpModel.pdb

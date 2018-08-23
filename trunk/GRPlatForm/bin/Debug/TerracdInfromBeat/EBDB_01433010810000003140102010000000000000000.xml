@@ -4,14 +4,14 @@
   <EBDID>01433010810000003140102010000000000000000</EBDID>
   <EBDType>ConnectionCheck</EBDType>
   <SRC>
-    <EBRID />
-    <URL>192.168.4.109:7500</URL>
+    <EBRID>43301081000000314010201</EBRID>
+    <URL>http://183.247.163.23:7500</URL>
   </SRC>
   <DEST>
-    <EBRID />
+    <EBRID>23300000000000102010101</EBRID>
   </DEST>
-  <EBDTime>2018-08-13 15:33:12</EBDTime>
+  <EBDTime>2018-08-17 13:55:53</EBDTime>
   <ConnectionCheck>
-    <RptTime>2018-08-13 15:33:12</RptTime>
+    <RptTime>2018-08-17 13:55:53</RptTime>
   </ConnectionCheck>
 </EBD>

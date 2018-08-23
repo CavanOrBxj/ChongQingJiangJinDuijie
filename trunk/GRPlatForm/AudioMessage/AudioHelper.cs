@@ -77,20 +77,20 @@ namespace GRPlatForm.AudioMessage
                     if (!string.IsNullOrEmpty(TsCmd_ValueID))
                     {
                         string result = InsertTsCmdStore(TsCmd_ValueID, AreaString, MQInstruction, AudioModel.PlayingTime.ToString(), AudioModel.PlayEndTime.ToString());
+
+                        SingletonInfo.GetInstance().DicTsCmd_ID.Add(AreaString, result);
                         if (!string.IsNullOrEmpty(result))
                         {
                             Thread thread;
-
-
-                            Random rd = new Random();
-                        
-                           string uuid= GetThreadUid(rd.Next(1000, 9999).ToString());
+                            string uuid= Guid.NewGuid().ToString("N");
                             thread = new Thread(delegate () {
                                AudioPlay(type, MQInstruction, result, TsCmd_ValueID);
                              
                                 }
                             );
-                            th.Add(uuid,thread);
+                            SingletonInfo.GetInstance().DicPlayingThread[AudioModel.AeraCodeReal].Add(thread);
+                           // th.Add(uuid,thread);
+                            thread.IsBackground = true;
                             thread.Start();
                             while (true)
                             {
@@ -98,6 +98,8 @@ namespace GRPlatForm.AudioMessage
                                 if (thread.ThreadState == ThreadState.Stopped)
                                 {
                                     thread.Abort();
+                                   // th.Remove(uuid);
+                                    SingletonInfo.GetInstance().DicPlayingThread.Remove(AudioModel.AeraCodeReal);
                                     break;
                                 }
                             }
@@ -112,18 +114,6 @@ namespace GRPlatForm.AudioMessage
             return null;
         }
 
-        public string GetThreadUid(string uuid)
-        {
-            if (th.ContainsKey(uuid))
-            {
-                Random rd = new Random();
-                return GetThreadUid(rd.Next(1000, 9999).ToString());
-            }
-            else
-            {
-                return uuid;
-            }
-        }
         public virtual bool MoreTime()
         {
             if (Convert.ToDateTime(AudioModel.PlayEndTime) < DateTime.Now)
@@ -152,7 +142,6 @@ namespace GRPlatForm.AudioMessage
             {
                 throw new Exception(string.Format("文转语读取文件{0},XML失败，错误原因:" + ex.Message));
             }
-            return null;
         }
         /// <summary>
         /// 播放
@@ -165,8 +154,9 @@ namespace GRPlatForm.AudioMessage
                 HttpServerFrom.SetManager("EBM开始时间: " + AudioModel.PlayingTime + "===>EBM结束时间: " + AudioModel.PlayEndTime, Color.Green);
                 HttpServerFrom.SetManager("播放开始时间: " + AudioModel.PlayingTime + "===>播放结束时间: " + AudioModel.PlayEndTime, Color.Green);
                 HttpServerFrom.SetManager("等待播放"+AudioModel.PlayingContent, Color.Green);
-                //          HttpServerFrom.SetManager("111111111111111111111111",Color.GreenYellow);
                 EBD ebd = GetEBD(AudioModel.XmlFilaPath);
+
+                string AreaString = CombinationArea();
 
                 ///未播放
                 AudioPlayState = AudioMessage.AudioPlayState.NotPlay;
@@ -174,9 +164,6 @@ namespace GRPlatForm.AudioMessage
                 {
                     HttpServerFrom.PlayBack = HttpServerFrom.PlaybackStateType.NotBroadcast;
                 }
-
-
-
                 #region 未播放
                 PlayStateInterface.NotPlay(TsCmd_ID, AudioModel.XmlFilaPath, "未播放", "1");
                 #endregion 未播放代码
@@ -196,9 +183,7 @@ namespace GRPlatForm.AudioMessage
 
                         }
                         AudioPlayState = AudioMessage.AudioPlayState.Playing;
-                       // MqSendOrder sendOrder = new MqSendOrder();
                         bool result = SendMQ.MqSendOrder.sendOrder.SendMq(ebd, type, ParamValue, TsCmd_ID, TsCmd_ValueID);
-
                         PlayStateInterface.Playing(TsCmd_ID, AudioModel.XmlFilaPath, "播放中", "2", "播发中");
                         break;
                     }
@@ -206,18 +191,12 @@ namespace GRPlatForm.AudioMessage
                 #endregion 播放中代码
                 //播放完成
                 #region 播放完
-
                 while (true)
                 {
-
                     Thread.Sleep(500);
-
                     if (DateTime.Compare(DateTime.Now, AudioModel.PlayEndTime)< 0)//结束时间大于当前时间  
                     {
-
                         string MediaSql = "select TsCmd_ID,TsCmd_ExCute from  TsCmdStore where TsCmd_ID='" + TsCmd_ID + "'";
-
-                        //  MediaSql = "select top(1)TsCmd_ID,TsCmd_XmlFile from  TsCmdStore where TsCmd_ValueID = '" + ebd.EBMStateRequest.EBM.EBMID + "' order by TsCmd_Date desc";
                         DataTable dtMedia = mainForm.dba.getQueryInfoBySQL(MediaSql);
                         if (dtMedia.Rows[0]["TsCmd_ExCute"].ToString().Contains("播放完毕"))
                         {
@@ -229,11 +208,10 @@ namespace GRPlatForm.AudioMessage
                             }
                             AudioPlayState = AudioMessage.AudioPlayState.PlayingOver;
                             PlayStateInterface.PlayOver(TsCmd_ID, AudioModel.XmlFilaPath, "播放完成", "3", "开机/运行中");
-
+                            SingletonInfo.GetInstance().DicTsCmd_ID.Remove(AreaString);
                             break;
                         }
                     }
-
                     else
                     {
                         lock (HttpServerFrom.PlayBackObject)
@@ -255,7 +233,7 @@ namespace GRPlatForm.AudioMessage
                             strSql = string.Format("update PLAYRECORD set PR_REC_STATUS = '{0}' ", "删除");
                             mainForm.dba.UpdateDbBySQL(strSql);
                         }
-
+                        SingletonInfo.GetInstance().DicTsCmd_ID.Remove(AreaString);
                         break;
                     }
                 }

@@ -11,7 +11,7 @@ namespace GRPlatForm.AudioMessage.SendMQ
    public class MqSendOrder
     {
         //MQ指令集合
-        private List<Property> m_lstProperty = new List<Property>();
+   
         public MQ m_mq;
         public readonly static MqSendOrder sendOrder = new MqSendOrder();
         private IniFiles serverini;
@@ -27,7 +27,7 @@ namespace GRPlatForm.AudioMessage.SendMQ
             Thread.Sleep(500);
             m_mq.CreateProducer(true, "fee.bar");
         }
-        public bool SendMq(EBD ebd,int Type, string ParamValue, string TsCmd_ID, string TsCmd_ValueID)
+        public bool SendMq(EBD ebd, int Type, string ParamValue, string TsCmd_ID, string TsCmd_ValueID)
         {
             if (ebd != null)
             {
@@ -39,26 +39,32 @@ namespace GRPlatForm.AudioMessage.SendMQ
                 Console.WriteLine("MQ标识未启用,取消发送!");
                 return false;
             }
-            //"1~D:\\rhtest_6_1\\apache-tomcat-7.0.69\\webapps\\ch-eoc\\upload/1109.mp3~0~1000~128~0~0~0"
-
-            m_lstProperty = Install(Type, ParamValue, TsCmd_ID, TsCmd_ValueID);//~0~1200~192~0~1~1应急
-
-            // m_lstProperty = MQCommandPackage(Type, ParamValue, TsCmd_ID);
+            List<Property> m_lstProperty = new List<Property>();
+            m_lstProperty = Install(Type, ParamValue, TsCmd_ID, TsCmd_ValueID);
             return m_mq.SendMQMessage(true, "Send", m_lstProperty);
         }
+
+
+        public bool SendMq(EBD ebd, string TsCmd_ID, string TsCmd_ValueID)
+        {
+            if (ebd != null)
+            {
+                string InfoValueStr = "insert into InfoVlaue values('" + ebd.EBDID + "')";
+                mainForm.dba.UpdateDbBySQL(InfoValueStr);
+            }
+            if (!HttpServerFrom.MQStartFlag)
+            {
+                Console.WriteLine("MQ标识未启用,取消发送!");
+                return false;
+            }
+            List<Property> m_lstProperty = new List<Property>();
+         //   m_lstProperty = Install(Type, ParamValue, TsCmd_ID, TsCmd_ValueID);
+            return m_mq.SendMQMessage(true, "Send", m_lstProperty);
+        }
+
+
         private List<Property> Install(int Type, string value, string TsCmd_ID, string TsCmd_ValueID)
         {
-            //TsCmd_Mode  区域
-            //TsCmd_Date  2017-07-11 19:16:38
-            //TsCmd_Status  0
-            //USER_PRIORITY  0
-            //TsCmd_UserID  14
-            //USER_ORG_CODE  P37Q06C02
-            //TsCmd_ValueID  22
-            //TsCmd_Type  播放视频
-            //VOICE                 2
-            //TsCmd_Params          1~D:\rhtest_6_1\apache-tomcat-7.0.69\webapps\ch-eoc\upload/1109.mp3~0~1000~128~0~0~0
-            //TsCmd_PlayCount       1
             List<Property> InstallList = new List<Property>();
             Property item = new Property();
             item.name = "TsCmd_Mode";
@@ -112,13 +118,10 @@ namespace GRPlatForm.AudioMessage.SendMQ
             }
             else
             {
-                //Property itemType = new Property();
-                //itemType.name = "TsCmd_Type";
-                //itemType.value = "音源播放";
-                //InstallList.Add(itemType);
                 Property itemType = new Property();
                 itemType.name = "TsCmd_Type";
-                itemType.value = "TTS播放";
+                //   itemType.value = "TTS播放";
+                itemType.value = "文本播放";
                 InstallList.Add(itemType);
                 Property itemTsCmd_PlayCount = new Property();    //2018-05-23
                 itemTsCmd_PlayCount.name = "TsCmd_PlayCount";
@@ -152,11 +155,6 @@ namespace GRPlatForm.AudioMessage.SendMQ
             m_mq.Start();
             Thread.Sleep(500);
             m_mq.CreateProducer(true, "fee.bar");
-            //Property ite = new Property();
-            //ite.name = "你是猪吗?";
-            //ite.value = "这个都不会";
-            //m_lstProperty.Add(ite);
-            //m_mq.SendMQMessage(true, "Send", m_lstProperty);
         }
     }
 }

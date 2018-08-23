@@ -39,12 +39,18 @@ namespace GRPlatForm.AudioMessage.MQAudio
             try
             {
 
-              string  sqlstr = "insert into TsCmdStore(TsCmd_Type, TsCmd_Mode, TsCmd_UserID, TsCmd_ValueID, TsCmd_Params, TsCmd_Date,TsCmd_ExcuteTime,TsCmd_SaveTime, TsCmd_Status,TsCmd_EndTime,TsCmd_Note,Ebm_ID,AreaCode,MsgTitle,TsCmd_PlayCount)" +
-"values('播放视频', '区域', 1,'" + TsCmd_ValueID + "', '1~" + AudioModel.PlayingContent + "~0~1200~192~0~1~1', " + "'" + sDateTime + "'" + ",'" + sDateTime + "','" + sDateTime + "', 0,'" + sEndDateTime + "'," + "'-1'" + "," + AudioModel. EBMID + "," + AudioModel.AeraCodeReal + ",'" + AudioModel.MsgTitleNew + "','20'" + ")";
-                // string sqlstr = "insert into TsCmdStore(TsCmd_Type, TsCmd_Mode, TsCmd_UserID, TsCmd_ValueID, TsCmd_Params, TsCmd_Date, TsCmd_Status,TsCmd_EndTime,TsCmd_Note)" +
-                ///  "values('音源播放', '区域', 1,'" + TsCmd_ValueID + "', '" + Content + "', '" + sDateTime + "', 0,'" + sEndDateTime + "'," + "'-1'" + ")";
-          //      string sqlstr = "insert into TsCmdStore(TsCmd_Type, TsCmd_Mode, TsCmd_UserID, TsCmd_ValueID, TsCmd_Params, TsCmd_Date,TsCmd_ExcuteTime,TsCmd_SaveTime, TsCmd_Status,TsCmd_EndTime,TsCmd_Note,Ebm_ID,AreaCode,MsgTitle)" +
-          //"values('播放视频', '区域', 1, " + SingletonInfo.GetInstance().TsCmd_ValueID_ + ", '1~" + get_uft8(AudioModel.PlayingContent) + "~0~1200~192~0~1~1', " + "'" + sDateTime + "'" + ",'" + sDateTime + "','" + sDateTime + "', 0,'" + sEndDateTime + "'," + "'-1'" + "," + AudioModel. EBMID + "," + AudioModel.AeraCodeReal + ",'" + AudioModel.MsgTitleNew + "')";
+                string sqlstr = "";
+
+                if (!string.IsNullOrEmpty(AudioModel.PlayingContent))
+                {
+                    sqlstr = "insert into TsCmdStore(TsCmd_Type, TsCmd_Mode, TsCmd_UserID, TsCmd_ValueID, TsCmd_Params, TsCmd_Date,TsCmd_ExcuteTime,TsCmd_SaveTime, TsCmd_Status,TsCmd_EndTime,TsCmd_Note,Ebm_ID,AreaCode,MsgTitle,TsCmd_PlayCount)" +
+    "values('播放视频', '区域', '"+SingletonInfo.GetInstance().TsCmd_UserID+"','" + TsCmd_ValueID + "', '1~" + AudioModel.PlayingContent + "~0~1200~192~0~1~1', " + "'" + sDateTime + "'" + ",'" + sDateTime + "','" + sDateTime + "', 0,'" + sEndDateTime + "'," + "'-1'" + "," + AudioModel.EBMID + "," + AudioModel.AeraCodeReal + ",'" + AudioModel.MsgTitleNew + "','20'" + ")";
+                }
+                else
+                {
+                    sqlstr = "insert into TsCmdStore(TsCmd_Type, TsCmd_Mode, TsCmd_UserID, TsCmd_ValueID, TsCmd_Params, TsCmd_Date,TsCmd_ExcuteTime,TsCmd_SaveTime, TsCmd_Status,TsCmd_EndTime,TsCmd_Note,Ebm_ID,AreaCode,MsgTitle,TsCmd_PlayCount)" +
+"values('文本播放', '区域', '"+SingletonInfo.GetInstance().TsCmd_UserID+"','" + TsCmd_ValueID + "', '" + AudioModel.PlayingContent + "~向上移动~10~12~0', " + "'" + sDateTime + "'" + ",'" + sDateTime + "','" + sDateTime + "', 0,'" + sEndDateTime + "'," + "'-1'" + "," + AudioModel.EBMID + "," + AudioModel.AeraCodeReal + ",'" + AudioModel.MsgTitleNew + "','20'" + ")";
+                }
                 string TsCmdStoreID = mainForm.dba.UpdateDbBySQLRetID(sqlstr).ToString();
                 if (Convert.ToInt32(TsCmdStoreID) > 0)
                 {
@@ -61,8 +67,19 @@ namespace GRPlatForm.AudioMessage.MQAudio
         {
             try
             {
-                string MQInstruction = GetAudioContent(AudioModel.PlayingContent);
-                base.PlayReady(1,MQInstruction);
+                string MQInstruction = "";
+                if (!string.IsNullOrEmpty(AudioModel.PlayingContent))
+                {
+                    MQInstruction= GetAudioContent(AudioModel.PlayingContent);
+                    base.PlayReady(1, MQInstruction);
+                }
+                else
+                {
+                    MQInstruction = GetTTSContent(AudioModel.MsgDesc);
+                    base.PlayReady(2, MQInstruction);
+                }
+            
+              
             }
             catch (Exception ex)
             {
@@ -77,34 +94,15 @@ namespace GRPlatForm.AudioMessage.MQAudio
                 paramValue1 = "1~" + content + "~0~1000~128~0~1~1";
             return paramValue1;
         }
-        //public override bool AudioPlay()
-        //{
-        //    try
-        //    {
 
-        //        ///未播放
-        //        AudioPlayState = AudioMessage.AudioPlayState.NotPlay;
-        //        #region 未播放
-        //        PlayStateInterface.NotPlay();
-        //        #endregion 未播放代码
-        //        //播放中
-        //        AudioPlayState = AudioMessage.AudioPlayState.Playing;
-        //        #region 播放中
-        //        PlayStateInterface.Playing();
-        //        #endregion 播放中代码
-        //        //播放完成
-        //        AudioPlayState = AudioMessage.AudioPlayState.PlayingOver;
-        //        #region 播放完
-        //        PlayStateInterface.PlayOver();
-
-        //        #endregion 播放中代码
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        AudioPlayState = AudioMessage.AudioPlayState.error;
-        //    }
-        //    return true;
-        //}
+        private string GetTTSContent(string content)
+        {
+            string paramValue1 = "";
+            if (!string.IsNullOrEmpty(content))
+                paramValue1 = content + "~向上移动~10~12~0";
+            return paramValue1;
+        }
+      
         /// <summary>
         /// 取消播放
         /// </summary>

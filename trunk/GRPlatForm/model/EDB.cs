@@ -74,6 +74,13 @@ public SRC SRC
             get;
             set;
         }
+
+        public List<EBRPS> EBRPSState
+        {
+            get;
+            set;
+        }
+
         public EBRPSInfo EBRPSInfo
         {
             get;
@@ -87,6 +94,11 @@ public SRC SRC
         public EBDResponse EBDResponse
         {
             get;set;
+        }
+
+        public EBRASInfo EBRASInfo
+        {
+            get; set;
         }
 
 
@@ -295,6 +307,90 @@ public SRC SRC
             set;
         }
     }
+
+
+    public class EBRASInfo
+    {
+        public Params Params
+        {
+            get;
+            set;
+        }
+        public List<EBRAS> EBRAS
+        {
+            get;
+            set;
+        }
+    }
+    public class EBRAS
+    {
+        /// <summary>
+        /// 数据操作生成时间
+        /// </summary>
+        public string RptTime
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 数据操作类型
+        /// </summary>
+        public string RptType
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 关联应急广播平台信息
+        /// </summary>
+        public RelatedEBRPS RelatedEBRPS
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 应急平台编码
+        /// </summary>
+        public string EBRID
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 应急平台名称
+        /// </summary>
+        public string EBRName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 经度
+        /// </summary>
+        public string Longitude
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 纬度
+        /// </summary>
+        public string Latitude
+        {
+            get;
+            set;
+        }
+        //网络地址
+        public string URL
+        {
+            get;
+            set;
+        }
+
+    }
+
+
     public class Params
     {
         public string RptStartTime
@@ -450,6 +546,31 @@ public SRC SRC
             set;
         }
     }
+
+    public class EBRPS
+    {
+        public string RptTime
+        {
+            get;
+            set;
+        }
+        public string EBRID
+        {
+            get;
+            set;
+        }
+        public int StateCode
+        {
+            get;
+            set;
+        }
+        public string StateDesc
+        {
+            get;
+            set;
+        }
+    }
+
 
     public class terminal
     {

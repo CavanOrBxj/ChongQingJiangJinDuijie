@@ -68,6 +68,7 @@
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.btn_HreartState = new System.Windows.Forms.Button();
             this.btn_InfroState = new System.Windows.Forms.Button();
+            this.btn_Adapter = new System.Windows.Forms.Button();
             this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
@@ -91,7 +92,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(474, 451);
+            this.panel1.Location = new System.Drawing.Point(474, 643);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(642, 80);
             this.panel1.TabIndex = 0;
@@ -214,7 +215,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(474, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(642, 451);
+            this.panel2.Size = new System.Drawing.Size(642, 643);
             this.panel2.TabIndex = 1;
             // 
             // txtMsgShow
@@ -224,7 +225,7 @@
             this.txtMsgShow.Multiline = true;
             this.txtMsgShow.Name = "txtMsgShow";
             this.txtMsgShow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMsgShow.Size = new System.Drawing.Size(642, 451);
+            this.txtMsgShow.Size = new System.Drawing.Size(642, 643);
             this.txtMsgShow.TabIndex = 0;
             // 
             // timHold
@@ -330,7 +331,7 @@
             this.dp_PendingTask.Location = new System.Drawing.Point(0, 0);
             this.dp_PendingTask.Name = "dp_PendingTask";
             this.dp_PendingTask.OriginalSize = new System.Drawing.Size(474, 265);
-            this.dp_PendingTask.Size = new System.Drawing.Size(474, 531);
+            this.dp_PendingTask.Size = new System.Drawing.Size(474, 723);
             this.dp_PendingTask.Text = "待处理消息";
             // 
             // dockPanel1_Container
@@ -338,7 +339,7 @@
             this.dockPanel1_Container.Controls.Add(this.list_PendingTask);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(466, 504);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(466, 696);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // list_PendingTask
@@ -350,7 +351,7 @@
             this.list_PendingTask.FullRowSelect = true;
             this.list_PendingTask.Location = new System.Drawing.Point(0, 0);
             this.list_PendingTask.Name = "list_PendingTask";
-            this.list_PendingTask.Size = new System.Drawing.Size(466, 504);
+            this.list_PendingTask.Size = new System.Drawing.Size(466, 696);
             this.list_PendingTask.TabIndex = 0;
             this.list_PendingTask.UseCompatibleStateImageBehavior = false;
             this.list_PendingTask.View = System.Windows.Forms.View.Details;
@@ -374,7 +375,7 @@
             this.panelContainer3.Location = new System.Drawing.Point(1116, 0);
             this.panelContainer3.Name = "panelContainer3";
             this.panelContainer3.OriginalSize = new System.Drawing.Size(207, 200);
-            this.panelContainer3.Size = new System.Drawing.Size(207, 531);
+            this.panelContainer3.Size = new System.Drawing.Size(207, 723);
             this.panelContainer3.Text = "panelContainer3";
             // 
             // dp_OMDRequest
@@ -385,8 +386,8 @@
             this.dp_OMDRequest.ID = new System.Guid("7b974e43-cbd2-4aff-b367-00fc3757a3c1");
             this.dp_OMDRequest.Location = new System.Drawing.Point(0, 0);
             this.dp_OMDRequest.Name = "dp_OMDRequest";
-            this.dp_OMDRequest.OriginalSize = new System.Drawing.Size(155, 266);
-            this.dp_OMDRequest.Size = new System.Drawing.Size(207, 266);
+            this.dp_OMDRequest.OriginalSize = new System.Drawing.Size(207, 266);
+            this.dp_OMDRequest.Size = new System.Drawing.Size(207, 362);
             this.dp_OMDRequest.Text = "上级业务数据请求";
             // 
             // dockPanel2_Container
@@ -394,7 +395,7 @@
             this.dockPanel2_Container.Controls.Add(this.list_OMDRequest);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(199, 239);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(199, 335);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // list_OMDRequest
@@ -405,7 +406,7 @@
             this.list_OMDRequest.FullRowSelect = true;
             this.list_OMDRequest.Location = new System.Drawing.Point(0, 0);
             this.list_OMDRequest.Name = "list_OMDRequest";
-            this.list_OMDRequest.Size = new System.Drawing.Size(199, 239);
+            this.list_OMDRequest.Size = new System.Drawing.Size(199, 335);
             this.list_OMDRequest.TabIndex = 0;
             this.list_OMDRequest.UseCompatibleStateImageBehavior = false;
             this.list_OMDRequest.View = System.Windows.Forms.View.Details;
@@ -420,10 +421,10 @@
             this.dp_HanleReport.Controls.Add(this.dockPanel4_Container);
             this.dp_HanleReport.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dp_HanleReport.ID = new System.Guid("978ef1fe-0ed2-45ea-82f8-7366205a213f");
-            this.dp_HanleReport.Location = new System.Drawing.Point(0, 266);
+            this.dp_HanleReport.Location = new System.Drawing.Point(0, 362);
             this.dp_HanleReport.Name = "dp_HanleReport";
-            this.dp_HanleReport.OriginalSize = new System.Drawing.Size(155, 265);
-            this.dp_HanleReport.Size = new System.Drawing.Size(207, 265);
+            this.dp_HanleReport.OriginalSize = new System.Drawing.Size(207, 265);
+            this.dp_HanleReport.Size = new System.Drawing.Size(207, 361);
             this.dp_HanleReport.Text = "手动上业务数据";
             // 
             // dockPanel4_Container
@@ -438,9 +439,10 @@
             this.dockPanel4_Container.Controls.Add(this.button4);
             this.dockPanel4_Container.Controls.Add(this.button3);
             this.dockPanel4_Container.Controls.Add(this.button6);
+            this.dockPanel4_Container.Controls.Add(this.btn_Adapter);
             this.dockPanel4_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(199, 238);
+            this.dockPanel4_Container.Size = new System.Drawing.Size(199, 334);
             this.dockPanel4_Container.TabIndex = 0;
             // 
             // btn_HreartState
@@ -467,6 +469,19 @@
             this.btn_InfroState.UseVisualStyleBackColor = true;
             this.btn_InfroState.Click += new System.EventHandler(this.btn_InfroState_Click);
             // 
+            // btn_Adapter
+            // 
+            this.btn_Adapter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Adapter.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btn_Adapter.Location = new System.Drawing.Point(3, 240);
+            this.btn_Adapter.Name = "btn_Adapter";
+            this.btn_Adapter.Size = new System.Drawing.Size(188, 25);
+            this.btn_Adapter.TabIndex = 5;
+            this.btn_Adapter.Text = "适配器信息上报";
+            this.btn_Adapter.UseVisualStyleBackColor = false;
+            this.btn_Adapter.Click += new System.EventHandler(this.btn_Adapter_Click);
+            // 
             // panelContainer2
             // 
             this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
@@ -484,7 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 531);
+            this.ClientSize = new System.Drawing.Size(1323, 723);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelContainer3);
@@ -554,5 +569,6 @@
         private System.Windows.Forms.ColumnHeader EBMEndTime;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_Adapter;
     }
 }

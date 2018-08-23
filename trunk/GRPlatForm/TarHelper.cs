@@ -112,7 +112,11 @@ namespace GRPlatForm
                     Console.WriteLine(strBasePath + "===>Count: " + xmlfiles.Length);
                     for (int i = 0; i < xmlfiles.Length; i++)
                     {
-                        archive.AddEntry(xmlfiles[i].Name, xmlfiles[i]);
+                        if (xmlfiles[i].Name.Contains(sTarName))
+                        {
+                            archive.AddEntry(xmlfiles[i].Name, xmlfiles[i]);
+                        }
+                       
                     }
                     SharpCompress.Common.CompressionInfo infs = new SharpCompress.Common.CompressionInfo();
                     archive.SaveTo(outStream, infs);

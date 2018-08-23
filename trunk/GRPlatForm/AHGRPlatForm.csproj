@@ -221,6 +221,7 @@
     </Compile>
     <Compile Include="Signature.cs" />
     <Compile Include="SingletonInfo.cs" />
+    <Compile Include="StructClass.cs" />
     <Compile Include="TarHelper.cs" />
     <Compile Include="TmpFolderSetForm.cs">
       <SubType>Form</SubType>

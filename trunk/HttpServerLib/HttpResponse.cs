@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.UI.HtmlControls;
 
@@ -86,6 +87,49 @@ namespace HttpServerLib
                 handler.Close();
             }
         }
+        public void SendNew(string FullTarFileName)
+        {
+            FileStream fsSnd = new FileStream(FullTarFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            BinaryReader br = new BinaryReader(fsSnd);     //时间戳
+            int datalen = (int)fsSnd.Length + 2;
+            int bufferLength = 4096;
+            long offset = 0; //开始上传时间
+
+            string[] tmp = FullTarFileName.Split('\\');
+            string fName = tmp[tmp.Length - 1];
+            writeHeader(datalen.ToString(), fName);
+
+
+            byte[] buffer = new byte[4096]; //已上传的字节数
+            int size = br.Read(buffer, 0, bufferLength);
+            while (size > 0)
+            {
+                handler.Write(buffer, 0, size);
+                offset += size;
+                size = br.Read(buffer, 0, bufferLength);
+            }
+            handler.Write(Encoding.UTF8.GetBytes(sEndLine), 0, 2);
+            Thread.Sleep(500);//太快提交会导致提交失败 所以这里加入延时   20180816
+            handler.Flush();//提交写入的数据
+            fsSnd.Close(); 
+        }
+
+
+        public void writeHeader(string strDataLen, string strTarName)//,ref FileStream fsave
+        {
+            StringBuilder sbHeader = new StringBuilder(200);
+
+            sbHeader.Append("HTTP/1.1 200 OK" + sEndLine);//HTTP/1.1 200 OK
+            sbHeader.Append("Content-Disposition:attachment;name=\"file\";filename=" + "\"" + strTarName + "\"" + sEndLine);
+            sbHeader.Append("Content-Type:application/x-tar" + sEndLine);
+            sbHeader.Append("Server:WinHttpClient" + sEndLine);
+            sbHeader.Append("Content-Length:" + strDataLen + sEndLine);
+            sbHeader.Append("Date:" + DateTime.Now.ToString("r") + sEndLine);
+            sbHeader.Append(sEndLine);
+            byte[] bTmp = Encoding.UTF8.GetBytes(sbHeader.ToString());
+            handler.Write(bTmp, 0, bTmp.Length);
+        }
+
         /// <summary>
         /// 构建响应头部
         /// </summary>

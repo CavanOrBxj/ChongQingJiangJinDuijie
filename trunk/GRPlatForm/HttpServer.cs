@@ -575,7 +575,7 @@ namespace GRPlatForm
                         //#endregion End
 
 
-                        #region 通用反馈  20180607新增
+                        #region 通用反馈
                         CurrencyTarBack(ebdb);
                         #endregion
                     }

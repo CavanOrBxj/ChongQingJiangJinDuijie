@@ -682,27 +682,8 @@ namespace HttpServerLib
                     }
                     ms.Seek(0, SeekOrigin.Begin);
                 }
-                //ms.Read(byteData, 0, byteData.Length);
-                //ms.Seek(0, SeekOrigin.Begin);
-                //   HttpModel.HttpRequst.HttpDelete. PostRequestDealEvent(new StreamReader(ms), path);
                 PostRequestDeal(new StreamReader(ms), path);
-                //// 把 byte[] 写入文件
-                //FileStream fsd = new FileStream(path + "\\" + tarName, FileMode.Create);
-                //BinaryWriter bw = new BinaryWriter(fsd);
-                //bw.Write(byteData);
-
-                //bw.Close();
-                //fsd.Close();
-
-
-                //Random rd = new Random(int.Parse(DateTime.Now.ToString("HHmmssfff")));
-                //info.id = rd.Next(1000, 9999);
-                //info.FileName = tarName;
-                //info.IsTime = DateTime.Now.ToString("yy-MM-dd hh:mm:ss");
-                //info.FullPath = path + "\\" + tarName;
-                //info.IsType = IsType.Receive;
-                //info.OfCompletion = OfCompletion.Untreated;
-                //Queueinterface<InfoModel>.queue.Enqueue(info);
+              
             }
             catch (Exception ex)
             {

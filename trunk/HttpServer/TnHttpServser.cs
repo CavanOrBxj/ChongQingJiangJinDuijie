@@ -78,16 +78,16 @@ namespace HttpServer
 
 
 
-        
 
-        public override void OnPost(HttpRequest request, HttpResponse response,string SavePath,string FileName)
+
+        public override void OnPost(HttpRequest request, HttpResponse response, string SavePath, string FileName)
         {
             string UnpackTarPath = "";
             string FileSavePath = SavePath + "\\" + FileName;
-            UnpackTarPath = sUnTarPath + "\\"+ FileName.Split('.')[0];
+            UnpackTarPath = sUnTarPath + "\\" + FileName.Split('.')[0];
             if (File.Exists(FileSavePath))
             {
-                if (!Directory.Exists(FileSavePath))
+                if (!Directory.Exists(UnpackTarPath))
                 {
                     Directory.CreateDirectory(UnpackTarPath);
                 }
@@ -108,10 +108,10 @@ namespace HttpServer
                     {
                         sAnalysisFileName = xmlfilenames[i];
                     }
-                    else if (sTmpFile.ToUpper().IndexOf("EBDS_EBDB") > -1)//签名文件
-                    {
-                        sSignFileName = xmlfilenames[i];//签名文件
-                    }
+                    //else if (sTmpFile.ToUpper().IndexOf("EBDS_EBDB") > -1)//签名文件
+                    //{
+                    //    sSignFileName = xmlfilenames[i];//签名文件
+                    //}
                 }
                 EBD ebd = null;
                 try
@@ -135,7 +135,13 @@ namespace HttpServer
                     string fName = "10" + strHBRONO + "0000000000000" + rd.Next(100, 999).ToString();
                     XmlDocument xmlDoc = cx.CombineResponse(ebd, "EBDResponse", fName);
                     string xmlSignFileName = "\\EBDB_" + fName + ".xml";
-                    cx.CreateXML(xmlDoc, SendFilePath + xmlSignFileName);
+
+
+                    string BeXmlFilesPath = serverini.ReadValue("FolderSet", "BeXmlFileMakeFolder");
+                    tar.DeleteFolder(BeXmlFilesPath);//新增20180816
+
+
+                    cx.CreateXML(xmlDoc, BeXmlFilesPath + xmlSignFileName);
 
                     //进行签名
 
@@ -143,31 +149,21 @@ namespace HttpServer
                     Attestation Attestation = new Attestation();
                     // TarHelper tar = new TarHelper();
                     //     ServerForm.mainFrm.AudioGenerateSignatureFile(ServerForm.strBeSendFileMakeFolder,"EBDI",fName);
-                 //   Attestation.GenerateSignatureFile(m_UsbPwsSupport, SendFilePath, fName, StartupPath + "\\Config.ini");  测试注释 20180814
+                    //   Attestation.GenerateSignatureFile(m_UsbPwsSupport, SendFilePath, fName, StartupPath + "\\Config.ini");  测试注释 20180814
                     tar.CreatTar(serverini.ReadValue("FolderSet", "BeXmlFileMakeFolder"), SendFilePath, fName);//使用新TAR
                     string sSendTarName = SendFilePath + "\\EBDT_" + fName + ".tar";
-                    byte[] heByte;
-                    using (FileStream fsRead = new FileStream(sSendTarName, FileMode.Open))
-                    {
-                        int fsLen = (int)fsRead.Length;
-                        heByte = new byte[fsLen];
-                        int r = fsRead.Read(heByte, 0, heByte.Length);
-                        string myStr = System.Text.Encoding.UTF8.GetString(heByte);
-                      
-                    }
-                    response.SetContent(heByte, "EBDT_" + fName + ".tar", Encoding.UTF8);
+
+
+                    response.SendNew(sSendTarName);
                 }
                 catch (Exception ex)
                 {
-                    HttpModel.Log.Instance.LogWrite("异常："+ex.Message);
-                } 
+                    HttpModel.Log.Instance.LogWrite("异常：" + ex.Message);
                 }
-          
-            //发送响应
-            response.Send();
-           
-    
+            }
         }
+
+
         public byte[] StreamToBytes(Stream stream)
 
         {
