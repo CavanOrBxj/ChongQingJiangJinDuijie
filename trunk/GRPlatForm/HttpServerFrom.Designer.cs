@@ -39,7 +39,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnHeart = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtMsgShow = new System.Windows.Forms.TextBox();
             this.timHold = new System.Windows.Forms.Timer(this.components);
@@ -141,73 +140,66 @@
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(3, 151);
+            this.button6.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.button6.Location = new System.Drawing.Point(3, 121);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(188, 25);
             this.button6.TabIndex = 5;
             this.button6.Text = "播发记录主动上报";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.MediumTurquoise;
             this.button4.Location = new System.Drawing.Point(3, 92);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 25);
             this.button4.TabIndex = 4;
             this.button4.Text = "终端信息上报";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.MediumTurquoise;
             this.button3.Location = new System.Drawing.Point(3, 61);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(188, 25);
             this.button3.TabIndex = 4;
             this.button3.Text = "平台状态信息";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.MediumTurquoise;
             this.button2.Location = new System.Drawing.Point(3, 32);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 25);
             this.button2.TabIndex = 4;
             this.button2.Text = "终端状态上报";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.MediumTurquoise;
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(188, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "平台信息上报";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnHeart
-            // 
-            this.btnHeart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHeart.Location = new System.Drawing.Point(3, 122);
-            this.btnHeart.Name = "btnHeart";
-            this.btnHeart.Size = new System.Drawing.Size(188, 25);
-            this.btnHeart.TabIndex = 3;
-            this.btnHeart.Text = "发送心跳";
-            this.btnHeart.UseVisualStyleBackColor = true;
-            this.btnHeart.Click += new System.EventHandler(this.btnHeart_Click);
             // 
             // panel2
             // 
@@ -435,7 +427,6 @@
             this.dockPanel4_Container.Controls.Add(this.btn_InfroState);
             this.dockPanel4_Container.Controls.Add(this.button1);
             this.dockPanel4_Container.Controls.Add(this.button2);
-            this.dockPanel4_Container.Controls.Add(this.btnHeart);
             this.dockPanel4_Container.Controls.Add(this.button4);
             this.dockPanel4_Container.Controls.Add(this.button3);
             this.dockPanel4_Container.Controls.Add(this.button6);
@@ -449,7 +440,7 @@
             // 
             this.btn_HreartState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_HreartState.Location = new System.Drawing.Point(3, 209);
+            this.btn_HreartState.Location = new System.Drawing.Point(3, 208);
             this.btn_HreartState.Name = "btn_HreartState";
             this.btn_HreartState.Size = new System.Drawing.Size(188, 25);
             this.btn_HreartState.TabIndex = 10;
@@ -461,7 +452,7 @@
             // 
             this.btn_InfroState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_InfroState.Location = new System.Drawing.Point(3, 180);
+            this.btn_InfroState.Location = new System.Drawing.Point(3, 179);
             this.btn_InfroState.Name = "btn_InfroState";
             this.btn_InfroState.Size = new System.Drawing.Size(188, 25);
             this.btn_InfroState.TabIndex = 11;
@@ -474,7 +465,7 @@
             this.btn_Adapter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Adapter.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btn_Adapter.Location = new System.Drawing.Point(3, 240);
+            this.btn_Adapter.Location = new System.Drawing.Point(3, 150);
             this.btn_Adapter.Name = "btn_Adapter";
             this.btn_Adapter.Size = new System.Drawing.Size(188, 25);
             this.btn_Adapter.TabIndex = 5;
@@ -536,7 +527,6 @@
         private System.Windows.Forms.TextBox txtMsgShow;
         private System.Windows.Forms.Timer timHold;
         private System.Windows.Forms.Timer timHeart;
-        private System.Windows.Forms.Button btnHeart;
         private System.Windows.Forms.Timer tim_MediaPlay;
         private System.Windows.Forms.Timer tim_ClearMemory;
         private System.Windows.Forms.Button button4;

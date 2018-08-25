@@ -5,13 +5,13 @@
   <EBDType>ConnectionCheck</EBDType>
   <SRC>
     <EBRID>45001160000000314010201</EBRID>
-    <URL>http://192.168.4.109:7500</URL>
+    <URL>http://192.168.4.193:7500</URL>
   </SRC>
   <DEST>
     <EBRID>45001160000000101010101</EBRID>
   </DEST>
-  <EBDTime>2018-08-23 14:03:27</EBDTime>
+  <EBDTime>2018-08-24 10:56:12</EBDTime>
   <ConnectionCheck>
-    <RptTime>2018-08-23 14:03:27</RptTime>
+    <RptTime>2018-08-24 10:56:12</RptTime>
   </ConnectionCheck>
 </EBD>

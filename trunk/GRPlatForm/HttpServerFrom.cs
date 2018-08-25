@@ -538,12 +538,17 @@ namespace GRPlatForm
                 //  HttpServerFrom.mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);   测试注释  20180812
                 HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                 string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                //   SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+
+                HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
+
+
+
             }
             catch (Exception ex)
             {
             }
-            Console.WriteLine("结束======");
+            SetManager("平台信息上报:" + DateTime.Now.ToString(), Color.Green);
         }
 
 
@@ -3294,6 +3299,7 @@ namespace GRPlatForm
             rHeart.sHBRONO = strHBRONO;
 
             HttpServerFrom.DeleteFolder(sHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
+            SetManager("播发记录上报:" + DateTime.Now.ToString(), Color.Green);
             switch (Type)
             {
                 case PlaybackRecordType.Report:
@@ -3313,7 +3319,8 @@ namespace GRPlatForm
             try
             {
                 string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
             }
             catch
             {
@@ -3643,7 +3650,10 @@ namespace GRPlatForm
 
                 HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                 string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+
+                HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
+                SetManager("平台状态上报:" + DateTime.Now.ToString(), Color.Green);
             }
             catch
             {
@@ -3669,6 +3679,7 @@ namespace GRPlatForm
             HttpServerFrom.DeleteFolder(sHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
             string frdStateName = "";
             List<Device> lDev = new List<Device>();
+            SetManager("终端信息上报:" + DateTime.Now.ToString(), Color.Green);
             try
             {
 
@@ -3805,7 +3816,8 @@ namespace GRPlatForm
                             //   HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释20180812
                             HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                             string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                            SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                            //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                            HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                             lDev.Clear();
                         }
                     }
@@ -3866,7 +3878,6 @@ namespace GRPlatForm
 
                             lDev.Add(DV);
                         }
-                        Random rdState = new Random();
                         frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
                         string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
@@ -3877,7 +3888,8 @@ namespace GRPlatForm
 
                         HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                         string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                        SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                        // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                        HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                     }
 
                 }
@@ -3894,7 +3906,8 @@ namespace GRPlatForm
 
                     HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                     string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                    SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                 }
             }
             catch (Exception ex)
@@ -3918,6 +3931,8 @@ namespace GRPlatForm
             HttpServerFrom.DeleteFolder(sHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
             string frdStateName = "";
             List<Device> lDev = new List<Device>();
+
+            SetManager("终端状态上报:" + DateTime.Now.ToString(), Color.Green);
             try
             {
                 //主要查终端
@@ -4058,7 +4073,9 @@ namespace GRPlatForm
                             //  HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释
                             HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                             string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                            SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                           // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+
+                            HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                             lDev.Clear();
                         }
                     }
@@ -4126,7 +4143,8 @@ namespace GRPlatForm
                         //   HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释20180812
                         HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                         string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                        SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                        //SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                        HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                     }
                 }
                 else
@@ -4140,7 +4158,8 @@ namespace GRPlatForm
                     //   HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName); 测试注释20180812
                     HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                     string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                    SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                 }
             }
             catch
@@ -4206,7 +4225,7 @@ namespace GRPlatForm
                     FindUserInfo("admin");
 
 
-            //    CheckEBRDTInfo.Enabled = true;
+             //  CheckEBRDTInfo.Enabled = true;
             }
             else
             {
@@ -4454,6 +4473,8 @@ namespace GRPlatForm
             HttpServerFrom.DeleteFolder(sHeartSourceFilePath);//删除原有XML发送文件的文件夹下的XML
             string frdStateName = "";
             List<Device> lAdapter = new List<Device>();
+
+            SetManager("适配器信息上报:" + DateTime.Now.ToString(), Color.Green);
             try
             {
                 MediaSql = "select SRV_LOGICAL_CODE_GB,SRV_ADDRESS,SRV_GOOGLE,SRV_IP FROM SRV  left join Srvtype on   SRV.DeviceTypeId= Srvtype .srv_id where  Srvtype.srv_id=3";
@@ -4481,7 +4502,8 @@ namespace GRPlatForm
                     //     HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释 20180812
                     HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
                     string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                    SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                 }
 
             }

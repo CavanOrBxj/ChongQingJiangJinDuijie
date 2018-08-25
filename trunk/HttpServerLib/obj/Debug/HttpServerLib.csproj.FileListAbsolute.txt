@@ -114,3 +114,17 @@ D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpServerLib\bin\Debug\Ht
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpServerLib\obj\Debug\HttpServerLib.csprojResolveAssemblyReference.cache
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpServerLib\obj\Debug\HttpServerLib.dll
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\HttpServerLib\obj\Debug\HttpServerLib.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\HttpServerLib.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\HttpServerLib.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\ConsumptionQueue.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\HttpModel.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\Log.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\SharpCompress.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\ConsumptionQueue.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\bin\Debug\HttpModel.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\obj\Debug\HttpServerLib.csprojAssemblyReference.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\obj\Debug\HttpServerLib.csproj.CoreCompileInputs.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\obj\Debug\HttpServerLib.csproj.CopyComplete
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\obj\Debug\HttpServerLib.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\HttpServerLib\obj\Debug\HttpServerLib.pdb

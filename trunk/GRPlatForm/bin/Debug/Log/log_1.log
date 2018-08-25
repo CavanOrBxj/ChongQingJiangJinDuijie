@@ -490,3 +490,70 @@
 2018/8/23 13:25:24	Error	Sever is running at http://192.168.4.109:7500
 2018/8/23 13:32:35	Error	异常：文件“D:\Abutment\93\UnRevTar\EBDT_0\EBDB_null.xml”正由另一进程使用，因此该进程无法访问此文件。
 2018/8/23 14:05:51	Error	正在中止线程。
+2018/8/24 星期五 上午 9:46:25	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 9:47:45	Error	正在中止线程。
+2018/8/24 星期五 上午 9:48:16	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 9:51:26	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 9:53:44	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 9:53:55	Error	异常：空路径名是非法的。
+2018/8/24 星期五 上午 9:58:16	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:05:18	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:09:01	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:10:32	Error	异常：无法将数据写入传输连接: 您的主机中的软件中止了一个已建立的连接。。
+2018/8/24 星期五 上午 10:14:47	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:31:59	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:32:57	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:34:53	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:36:53	Error	Sever is running at http://192.168.4.193:7500
+2018/8/24 星期五 上午 10:42:10	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 11:00:53	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 11:15:40	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 11:26:00	Error	异常：空路径名是非法的。
+2018-08-24 11:31:36	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 11:32:40	Error	异常：空路径名是非法的。
+2018-08-24 12:06:46	Error	异常：空路径名是非法的。
+2018-08-24 12:06:59	Error	异常：空路径名是非法的。
+2018-08-24 12:09:49	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 12:12:32	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:07:50	Error	正在中止线程。
+2018-08-24 14:09:32	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:15:46	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:17:34	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:40:23	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:43:02	Error	正在中止线程。
+2018-08-24 14:49:24	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:51:51	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 14:55:25	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 15:05:02	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 15:06:33	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 15:12:25	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 15:13:14	Error	异常：空路径名是非法的。
+2018-08-24 15:14:47	Error	异常：文件“D:\Abutment\93\SendTarFilePath\EBDT_10450011600000003140102010000000000000274.tar”正由另一进程使用，因此该进程无法访问此文件。
+2018-08-24 15:18:05	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 15:19:03	Error	异常：空路径名是非法的。
+2018-08-24 22:34:11	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:35:38	Error	正在中止线程。
+2018-08-24 22:36:26	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:36:34	Error	异常：空路径名是非法的。
+2018-08-24 22:38:44	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:40:28	Error	异常：空路径名是非法的。
+2018-08-24 22:40:39	Error	异常：空路径名是非法的。
+2018-08-24 22:43:18	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:43:28	Error	异常：空路径名是非法的。
+2018-08-24 22:45:07	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:48:30	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:49:42	Error	异常：空路径名是非法的。
+2018-08-24 22:52:33	Error	Sever is running at http://192.168.4.193:7500
+2018-08-24 22:54:11	Error	异常：空路径名是非法的。
+2018-08-24 22:55:38	Error	异常：空路径名是非法的。
+2018-08-24 23:10:49	Error	Sever is running at http://192.168.4.193:7500
+2018-08-25 09:30:12	Error	Sever is running at http://192.168.4.193:7500
+2018-08-25 09:33:38	Error	Sever is running at http://192.168.4.193:7500
+2018-08-25 09:34:03	Error	异常：空路径名是非法的。
+2018-08-25 09:59:15	Error	异常：空路径名是非法的。
+2018-08-25 15:30:47	Error	Sever is running at http://192.168.4.109:7500
+2018-08-25 15:32:07	Error	正在中止线程。
+2018-08-25 15:34:22	Error	Sever is running at http://192.168.4.109:7500
+2018-08-25 16:00:33	Error	Sever is running at http://192.168.4.109:7500
+2018-08-25 16:09:28	Error	Sever is running at http://192.168.4.109:7500
+2018-08-25 16:12:16	Error	Sever is running at http://192.168.4.109:7500

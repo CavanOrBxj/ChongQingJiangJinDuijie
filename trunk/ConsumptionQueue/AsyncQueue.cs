@@ -162,7 +162,7 @@ namespace ConsumptionQueue
 
             while (enabled)
             {
-                if (queue.TryDequeue(out publishFrame))
+                if (queue.TryDequeue(out publishFrame))//出队
                 {
                     try
                     {

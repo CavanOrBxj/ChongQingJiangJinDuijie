@@ -23,3 +23,9 @@ D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\ProcessHelper\bin\Debug\Pr
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\ProcessHelper\obj\Debug\ProcessHelper.csprojResolveAssemblyReference.cache
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\ProcessHelper\obj\Debug\ProcessHelper.dll
 D:\ProjectDoc\对接软件\MatchPlatform\江津\trunk\ProcessHelper\obj\Debug\ProcessHelper.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\bin\Debug\ProcessHelper.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\bin\Debug\ProcessHelper.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.csprojAssemblyReference.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.csproj.CoreCompileInputs.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.pdb
