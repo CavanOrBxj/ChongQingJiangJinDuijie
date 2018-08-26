@@ -3687,142 +3687,142 @@ namespace GRPlatForm
                 DataTable dtMedia = mainForm.dba.getQueryInfoBySQL(MediaSql);
                 if (dtMedia != null && dtMedia.Rows.Count > 0)
                 {
-                    if (dtMedia.Rows.Count > 100)
-                    {
-                        int mod = dtMedia.Rows.Count / 100 + 1;
-                        for (int i = 0; i < mod; i++)
-                        {
-                            if (mod - 1 > i)
-                            {
-                                for (int idtM = 0; idtM < 99; idtM++)
-                                {
-                                    Device DV = new Device();
-                                    DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
-                                    strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
-                                    #region 自动添加逻辑编码 2018-01-10
-                                    string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
-                                    string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
-                                    string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
-                                    int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
+                    //if (dtMedia.Rows.Count > 100)
+                    //{
+                    //    int mod = dtMedia.Rows.Count / 100 + 1;
+                    //    for (int i = 0; i < mod; i++)
+                    //    {
+                    //        if (mod - 1 > i)
+                    //        {
+                    //            for (int idtM = 0; idtM < 99; idtM++)
+                    //            {
+                    //                Device DV = new Device();
+                    //                DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
+                    //                strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
+                    //                #region 自动添加逻辑编码 2018-01-10
+                    //                string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
+                    //                string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
+                    //                string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
+                    //                int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
 
-                                    LogicalData logicaldata = new LogicalData();
-                                    logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
-                                    logicaldata.srvAreaID = areaId;
-                                    logicaldata.LogicalCode = SRV_LOGICAL_CODE;
-                                    LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
+                    //                LogicalData logicaldata = new LogicalData();
+                    //                logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
+                    //                logicaldata.srvAreaID = areaId;
+                    //                logicaldata.LogicalCode = SRV_LOGICAL_CODE;
+                    //                LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
 
-                                    if (number > 1)
-                                    {
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
+                    //                if (number > 1)
+                    //                {
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
 
-                                        logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
-                                    }
+                    //                    logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
+                    //                }
 
-                                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
-                                    {
-
-
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                        {
-                                            SetManager("区域码有误请认真核对区域码", Color.Red);
-                                            continue;
-                                        }
-                                    }
-                                    if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                    {
-                                        if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
-                                        {
-                                            SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        }
-                                    }
-                                    DV.DeviceID = SRV_LOGICAL_CODE_GB;
-                                    #endregion
-
-                                    DV.DeviceName = dtMedia.Rows[99 * i + idtM][5].ToString();
-
-                                    DV.Latitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[0];
-                                    DV.Longitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[1];
-                                    DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
-                                    DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
-                                    DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
-                                    lDev.Add(DV);
-                                }
-                            }
-                            else
-                            {
-                                for (int idtM = 0; idtM < dtMedia.Rows.Count - 99 * i; idtM++)
-                                {
-                                    Device DV = new Device();
-                                    DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
-                                    strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
-                                    #region 自动添加逻辑编码 2018-01-10
-                                    string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
-                                    string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
-                                    string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
-                                    int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
-
-                                    LogicalData logicaldata = new LogicalData();
-                                    logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
-                                    logicaldata.srvAreaID = areaId;
-                                    logicaldata.LogicalCode = SRV_LOGICAL_CODE;
-                                    LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
-
-                                    if (number > 1)
-                                    {
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
-
-                                        logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
-                                    }
-
-                                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
-                                    {
+                    //                if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
+                    //                {
 
 
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                        {
-                                            SetManager("区域码有误请认真核对区域码", Color.Red);
-                                            continue;
-                                        }
-                                    }
-                                    if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                    {
-                                        if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
-                                        {
-                                            SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        }
-                                    }
-                                    DV.DeviceID = SRV_LOGICAL_CODE_GB;
-                                    #endregion
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                    {
+                    //                        SetManager("区域码有误请认真核对区域码", Color.Red);
+                    //                        continue;
+                    //                    }
+                    //                }
+                    //                if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                {
+                    //                    if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
+                    //                    {
+                    //                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    }
+                    //                }
+                    //                DV.DeviceID = SRV_LOGICAL_CODE_GB;
+                    //                #endregion
 
-                                    DV.DeviceName = dtMedia.Rows[99 * i + idtM][5].ToString();
+                    //                DV.DeviceName = dtMedia.Rows[99 * i + idtM][5].ToString();
 
-                                    DV.Latitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[0];
-                                    DV.Longitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[1];
-                                    DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
-                                    DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
-                                    DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
-                                    lDev.Add(DV);
-                                }
-                            }
+                    //                DV.Latitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[0];
+                    //                DV.Longitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[1];
+                    //                DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
+                    //                DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
+                    //                DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
+                    //                lDev.Add(DV);
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            for (int idtM = 0; idtM < dtMedia.Rows.Count - 99 * i; idtM++)
+                    //            {
+                    //                Device DV = new Device();
+                    //                DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
+                    //                strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
+                    //                #region 自动添加逻辑编码 2018-01-10
+                    //                string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
+                    //                string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
+                    //                string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
+                    //                int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
+
+                    //                LogicalData logicaldata = new LogicalData();
+                    //                logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
+                    //                logicaldata.srvAreaID = areaId;
+                    //                logicaldata.LogicalCode = SRV_LOGICAL_CODE;
+                    //                LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
+
+                    //                if (number > 1)
+                    //                {
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
+
+                    //                    logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
+                    //                }
+
+                    //                if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
+                    //                {
 
 
-                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
-                            string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                    {
+                    //                        SetManager("区域码有误请认真核对区域码", Color.Red);
+                    //                        continue;
+                    //                    }
+                    //                }
+                    //                if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                {
+                    //                    if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
+                    //                    {
+                    //                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    }
+                    //                }
+                    //                DV.DeviceID = SRV_LOGICAL_CODE_GB;
+                    //                #endregion
 
-                            xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
-                            CreateXML(xmlHeartDoc, sHeartSourceFilePath + xmlEBMStateFileName);
-                            //   HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释20180812
-                            HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
-                            string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                            //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
-                            HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
-                            lDev.Clear();
-                        }
-                    }
-                    else
-                    {
+                    //                DV.DeviceName = dtMedia.Rows[99 * i + idtM][5].ToString();
+
+                    //                DV.Latitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[0];
+                    //                DV.Longitude = dtMedia.Rows[99 * i + idtM]["SRV_GOOGLE"].ToString().Split(',')[1];
+                    //                DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
+                    //                DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
+                    //                DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
+                    //                lDev.Add(DV);
+                    //            }
+                    //        }
+
+
+                    //        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
+                    //        string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
+
+                    //        xmlHeartDoc = rHeart.DeviceInfoResponse(lDev, frdStateName);
+                    //        CreateXML(xmlHeartDoc, sHeartSourceFilePath + xmlEBMStateFileName);
+                    //        //   HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释20180812
+                    //        HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
+                    //        string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
+                    //        //  SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    //        HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
+                    //        lDev.Clear();
+                    //    }
+                    //}
+                    //else
+                    //{
                         for (int idtM = 0; idtM < dtMedia.Rows.Count; idtM++)
                         {
                             Device DV = new Device();
@@ -3890,7 +3890,7 @@ namespace GRPlatForm
                         string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
                         // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
                         HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
-                    }
+                   // }
 
                 }
                 else
@@ -3942,145 +3942,145 @@ namespace GRPlatForm
                 DataTable dtMedia = mainForm.dba.getQueryInfoBySQL(MediaSql);
                 if (dtMedia != null && dtMedia.Rows.Count > 0)
                 {
-                    if (dtMedia.Rows.Count > 100)
-                    {
+                    //if (dtMedia.Rows.Count > 100)
+                    //{
 
-                        int mod = dtMedia.Rows.Count / 100 + 1;
-                        for (int i = 0; i < mod; i++)
-                        {
-                            if (mod - 1 > i)
-                            {
-                                for (int idtM = 0; idtM < 99; idtM++)
-                                {
-                                    Device DV = new Device();
-                                    DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
-                                    strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
-                                    #region 自动添加逻辑编码 2018-01-10
-                                    string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
-                                    string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
-                                    string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
-                                    int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
+                    //    int mod = dtMedia.Rows.Count / 100 + 1;
+                    //    for (int i = 0; i < mod; i++)
+                    //    {
+                    //        if (mod - 1 > i)
+                    //        {
+                    //            for (int idtM = 0; idtM < 99; idtM++)
+                    //            {
+                    //                Device DV = new Device();
+                    //                DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
+                    //                strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
+                    //                #region 自动添加逻辑编码 2018-01-10
+                    //                string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
+                    //                string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
+                    //                string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
+                    //                int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
 
-                                    LogicalData logicaldata = new LogicalData();
-                                    logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
-                                    logicaldata.srvAreaID = areaId;
-                                    logicaldata.LogicalCode = SRV_LOGICAL_CODE;
-                                    LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
+                    //                LogicalData logicaldata = new LogicalData();
+                    //                logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
+                    //                logicaldata.srvAreaID = areaId;
+                    //                logicaldata.LogicalCode = SRV_LOGICAL_CODE;
+                    //                LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
 
-                                    if (number > 1)
-                                    {
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
+                    //                if (number > 1)
+                    //                {
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
 
-                                        logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
-                                    }
+                    //                    logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
+                    //                }
 
-                                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
-                                    {
-
-
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                        {
-                                            SetManager("区域码有误请认真核对区域码", Color.Red);
-                                            continue;
-                                        }
-                                    }
-                                    if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                    {
-                                        if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
-                                        {
-                                            SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        }
-                                    }
-                                    DV.DeviceID = SRV_LOGICAL_CODE_GB;
-                                    #endregion
-
-                                    DV.DeviceName = dtMedia.Rows[99 * i + idtM][4].ToString();
-
-                                    DV.Latitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[0];
-                                    DV.Longitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[1];
-                                    DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
-                                    DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
-                                    DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
-                                    lDev.Add(DV);
-                                }
-                            }
-                            else
-                            {
-                                for (int idtM = 0; idtM < dtMedia.Rows.Count - 99 * i; idtM++)
-                                {
-                                    Device DV = new Device();
-                                    DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
-                                    strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
-                                    #region 自动添加逻辑编码 2018-01-10
-                                    string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
-                                    string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
-                                    string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
-                                    int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
-
-                                    LogicalData logicaldata = new LogicalData();
-                                    logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
-                                    logicaldata.srvAreaID = areaId;
-                                    logicaldata.LogicalCode = SRV_LOGICAL_CODE;
-                                    LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
-
-                                    if (number > 1)
-                                    {
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
-
-                                        logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
-                                    }
-
-                                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
-                                    {
+                    //                if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
+                    //                {
 
 
-                                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                        {
-                                            SetManager("区域码有误请认真核对区域码", Color.Red);
-                                            continue;
-                                        }
-                                    }
-                                    if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
-                                    {
-                                        if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
-                                        {
-                                            SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
-                                        }
-                                    }
-                                    DV.DeviceID = SRV_LOGICAL_CODE_GB;
-                                    #endregion
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                    {
+                    //                        SetManager("区域码有误请认真核对区域码", Color.Red);
+                    //                        continue;
+                    //                    }
+                    //                }
+                    //                if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                {
+                    //                    if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
+                    //                    {
+                    //                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    }
+                    //                }
+                    //                DV.DeviceID = SRV_LOGICAL_CODE_GB;
+                    //                #endregion
 
-                                    DV.DeviceName = dtMedia.Rows[99 * i + idtM][4].ToString();
+                    //                DV.DeviceName = dtMedia.Rows[99 * i + idtM][4].ToString();
 
-                                    DV.Latitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[0];
-                                    DV.Longitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[1];
-                                    DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
-                                    DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
-                                    DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
-                                    lDev.Add(DV);
-                                }
-                            }
+                    //                DV.Latitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[0];
+                    //                DV.Longitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[1];
+                    //                DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
+                    //                DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
+                    //                DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
+                    //                lDev.Add(DV);
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            for (int idtM = 0; idtM < dtMedia.Rows.Count - 99 * i; idtM++)
+                    //            {
+                    //                Device DV = new Device();
+                    //                DV.SRV_ID = dtMedia.Rows[99 * i + idtM][0].ToString();
+                    //                strSRV_CODE = dtMedia.Rows[99 * i + idtM][1].ToString();
+                    //                #region 自动添加逻辑编码 2018-01-10
+                    //                string SRV_LOGICAL_CODE = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE"].ToString();
+                    //                string areaId = dtMedia.Rows[99 * i + idtM]["areaId"].ToString();
+                    //                string SRV_LOGICAL_CODE_GB = dtMedia.Rows[99 * i + idtM]["SRV_LOGICAL_CODE_GB"].ToString();
+                    //                int number = GetGBCodeCount(areaId, SRV_LOGICAL_CODE_GB);
+
+                    //                LogicalData logicaldata = new LogicalData();
+                    //                logicaldata.srvID = dtMedia.Rows[99 * i + idtM]["SRV_ID"].ToString();
+                    //                logicaldata.srvAreaID = areaId;
+                    //                logicaldata.LogicalCode = SRV_LOGICAL_CODE;
+                    //                LogicalCoding.LogicalHelper logical = new LogicalCoding.LogicalHelper(logicaldata);
+
+                    //                if (number > 1)
+                    //                {
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalCodel(SRV_LOGICAL_CODE_GB);
+
+                    //                    logical.UpdateLogicalCode(logicaldata.srvID, SRV_LOGICAL_CODE_GB);
+                    //                }
+
+                    //                if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB) || SRV_LOGICAL_CODE_GB.Length != 23)
+                    //                {
+
+
+                    //                    SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    if (string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                    {
+                    //                        SetManager("区域码有误请认真核对区域码", Color.Red);
+                    //                        continue;
+                    //                    }
+                    //                }
+                    //                if (!string.IsNullOrEmpty(SRV_LOGICAL_CODE_GB))
+                    //                {
+                    //                    if (!(SRV_LOGICAL_CODE_GB.Length == 23 && logical.GetCombAreaCode(SRV_LOGICAL_CODE_GB, areaId)))
+                    //                    {
+                    //                        SRV_LOGICAL_CODE_GB = logical.GetLogicalAndAddDataBase();
+                    //                    }
+                    //                }
+                    //                DV.DeviceID = SRV_LOGICAL_CODE_GB;
+                    //                #endregion
+
+                    //                DV.DeviceName = dtMedia.Rows[99 * i + idtM][4].ToString();
+
+                    //                DV.Latitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[0];
+                    //                DV.Longitude = dtMedia.Rows[99 * i + idtM][2].ToString().Split(',')[1];
+                    //                DV.Srv_Mft_Date = dtMedia.Rows[99 * i + idtM]["SRV_MFT_DATE"].ToString();
+                    //                DV.UpdateDate = dtMedia.Rows[99 * i + idtM]["updateDate"].ToString();
+                    //                DV.DeviceState = dtMedia.Rows[99 * i + idtM]["SRV_RMT_STATUS"].ToString();
+                    //                lDev.Add(DV);
+                    //            }
+                    //        }
 
 
 
-                            frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
-                            string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
+                    //        frdStateName = "10" + rHeart.sHBRONO + GetSequenceCodes();
+                    //        string xmlEBMStateFileName = "\\EBDB_" + frdStateName + ".xml";
 
-                            xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
-                            CreateXML(xmlHeartDoc, sHeartSourceFilePath + xmlEBMStateFileName);
-                            //  HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释
-                            HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
-                            string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
-                           // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
+                    //        xmlHeartDoc = rHeart.DeviceStateResponse(lDev, frdStateName);
+                    //        CreateXML(xmlHeartDoc, sHeartSourceFilePath + xmlEBMStateFileName);
+                    //        //  HttpServerFrom .mainFrm.GenerateSignatureFile(sHeartSourceFilePath, frdStateName);  测试注释
+                    //        HttpServerFrom.tar.CreatTar(sHeartSourceFilePath, HttpServerFrom.sSendTarPath, frdStateName);//使用新TAR
+                    //        string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
+                    //       // SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
 
-                            HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
-                            lDev.Clear();
-                        }
-                    }
-                    else
-                    {
+                    //        HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
+                    //        lDev.Clear();
+                    //    }
+                    //}
+                    //else
+                    //{
                         for (int idtM = 0; idtM < dtMedia.Rows.Count; idtM++)
                         {
                             Device DV = new Device();
@@ -4145,7 +4145,7 @@ namespace GRPlatForm
                         string sHeartBeatTarName = sSendTarPath + "\\" + "EBDT_" + frdStateName + ".tar";
                         //SendTar.SendTarOrder.sendHelper.AddPostQueue(sZJPostUrlAddress, sHeartBeatTarName);
                         HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
-                    }
+                    //}
                 }
                 else
                 {

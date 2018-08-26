@@ -29,3 +29,9 @@ D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\Pro
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.csproj.CoreCompileInputs.cache
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.dll
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\bin\Debug\ProcessHelper.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\bin\Debug\ProcessHelper.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.csprojAssemblyReference.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.csproj.CoreCompileInputs.cache
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.dll
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\ProcessHelper\obj\Debug\ProcessHelper.pdb
