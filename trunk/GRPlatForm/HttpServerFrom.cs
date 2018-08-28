@@ -953,11 +953,12 @@ namespace GRPlatForm
                                                     Thread myThread = new Thread(ParStart);
                                                     myThread.IsBackground = true;
 
-                                                    myThread.Start(pe);
+                                                   
 
                                                     List<Thread> ThreadList = new List<Thread>();
                                                     ThreadList.Add(myThread);
                                                     SingletonInfo.GetInstance().DicPlayingThread.Add(ebd.EBM.MsgContent.AreaCode, ThreadList);
+                                                    myThread.Start(pe);
                                                 }
                                                 #endregion
                                             }
@@ -1016,11 +1017,12 @@ namespace GRPlatForm
                                                     ParameterizedThreadStart ParStart = new ParameterizedThreadStart(PlaybackProcess);
                                                     Thread myThread = new Thread(ParStart);
                                                     myThread.IsBackground = true;
-                                                    myThread.Start(pe);
+                                                  
 
                                                     List<Thread> ThreadList = new List<Thread>();
                                                     ThreadList.Add(myThread);
                                                     SingletonInfo.GetInstance().DicPlayingThread.Add(ebd.EBM.MsgContent.AreaCode, ThreadList);
+                                                    myThread.Start(pe);
                                                     #endregion----------------------------------
                                                 }
                                             }
