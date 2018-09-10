@@ -99,3 +99,4 @@ D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\Htt
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.csproj.CopyComplete
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.dll
 D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.pdb
+D:\GitHub\重庆江津\ChongQingJiangJinDuijie\ChongQingJiangJinDuijie\trunk\HttpModel\obj\Debug\HttpModel.csprojAssemblyReference.cache

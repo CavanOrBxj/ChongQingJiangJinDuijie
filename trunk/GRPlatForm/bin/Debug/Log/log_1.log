@@ -564,3 +564,9 @@
 2018/8/26 19:06:14	Error	正在中止线程。
 2018/8/26 20:57:32	Error	Sever is running at http://192.168.4.109:7500
 2018/8/26 21:00:23	Error	一个封锁操作被对 WSACancelBlockingCall 的调用中断。
+2018/8/29 16:26:48	Error	Sever is running at http://192.168.4.101:7500
+2018/8/29 16:28:59	Error	Sever is running at http://192.168.4.101:7500
+2018/8/29 16:30:27	Error	Sever is running at http://192.168.4.101:7500
+2018/8/29 16:51:30	Error	Sever is running at http://192.168.4.101:7500
+2018/8/29 16:55:17	Error	Sever is running at http://192.168.4.101:7500
+2018/8/29 17:06:15	Error	Sever is running at http://192.168.4.101:7500

@@ -4164,8 +4164,9 @@ namespace GRPlatForm
                     HttpSendFile.UploadFilesByPost(sZJPostUrlAddress, sHeartBeatTarName, 1);//新增于20180824
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.StackTrace);
             }
         }
 
